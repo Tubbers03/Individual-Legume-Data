@@ -1,0 +1,10 @@
+project:
+  type: websiteoutput-dir: docs
+
+website:
+  title: "website"
+  navbar:
+    left:
+      - href: index.qmd
+      
+
