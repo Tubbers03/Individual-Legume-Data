@@ -1,5 +1,0 @@
-```
-title: "My Python Package!"
-```
-
-Here is a webiste all about my package for STAT 386!
