@@ -3,3 +3,237 @@ title: "Documentation"
 ---
 
 Functions:
+
+# 1. Data Collection Functions
+
+## 1.1 `read_api_key()`
+
+### Purpose
+Reads the USDA API key stored in a local `api.txt` file.
+
+### Parameters
+None
+
+### Returns
+- **api_key** (str): The API key contained in the file.
+
+### Assumptions
+- A file named `api.txt` exists in the working directory.
+- The file contains only the API key with no additional formatting.
+
+### Example
+    api_key = read_api_key()
+
+---
+
+## 1.2 `call_api(api_key)`
+
+### Purpose
+Queries the USDA FoodData Central API for foods in the  
+**"Legumes and Legume Products"** category, retrieving multiple pages of results.
+
+### Parameters
+- **api_key** (str): Valid USDA API key.
+
+### Returns
+- **legus** (list): A combined list of JSON records returned from all pages.
+
+### Details
+- Loops through pages 1–5.
+- Extends a master list with each page's results.
+- Uses `requests.get()` for API calls.
+
+### Example
+    legus = call_api(api_key)
+
+---
+
+# 2. Data Wrangling Functions
+
+## 2.1 `create_df(legus)`
+
+### Purpose
+Transforms raw API JSON data into a pandas DataFrame and filters  
+to include only foods with `dataType == "Foundation"`.
+
+### Parameters
+- **legus** (list): Raw API response list.
+
+### Returns
+- **legusdf** (DataFrame): Cleaned and reindexed DataFrame.
+
+### Example
+    legusdf = create_df(legus)
+
+---
+
+## 2.2 `extract_nutrient(nutrient_list, target)`
+
+### Purpose
+Extracts the numerical value of a specific nutrient from a list of nutrient dictionaries.
+
+### Parameters
+- **nutrient_list** (list): List of nutrient dicts for a single food item.
+- **target** (str): Name of the nutrient to extract (e.g., `"Protein"`).
+
+### Returns
+- (float or None): The matching nutrient value, or `None` if not found.
+
+### Assumptions
+- Nutrient entries follow USDA naming conventions.
+
+### Example
+    protein = extract_nutrient(row["foodNutrients"], "Protein")
+
+---
+
+## 2.3 `nutrient_cols(legusdf)`
+
+### Purpose
+Creates new DataFrame columns for nutrients by applying  
+`extract_nutrient()` across the dataset.
+
+### Parameters
+- **legusdf** (DataFrame): Dataset containing a `foodNutrients` column.
+
+### Returns
+- **legusdf** (DataFrame): Original DataFrame with added nutrient columns.
+
+### Example
+    legusdf = nutrient_cols(legusdf)
+
+---
+
+## 2.4 `clean_cols(legusdf)`
+
+### Purpose
+Handles missing values and rounds all numeric columns to two decimals.
+
+### Parameters
+- **legusdf** (DataFrame)
+
+### Returns
+- **legusdf** (DataFrame): Cleaned and standardized.
+
+### Example
+    legusdf = clean_cols(legusdf)
+
+---
+
+## 2.5 `categorize(legusdf)`
+
+### Purpose
+Splits the USDA `description` field into  
+- **Category** (first section before comma)  
+- **Type** (section after comma)
+
+### Parameters
+- **legusdf** (DataFrame)
+
+### Returns
+- **legusdf** (DataFrame): DataFrame with `Category` and `Type` added.
+
+### Example
+    legusdf = categorize(legusdf)
+
+---
+
+## 2.6 `reorder_df(legusdf)`
+
+### Purpose
+Rearranges columns into a logical order for readability.
+
+### Parameters
+- **legusdf** (DataFrame)
+
+### Returns
+- **legusdf** (DataFrame): Reordered dataset.
+
+### Example
+    legusdf = reorder_df(legusdf)
+
+---
+
+## 2.7 `drop_unsedcols(legusdf)`
+
+### Purpose
+Removes extraneous USDA metadata not needed for analysis  
+(e.g., `fdcId`, `publicationDate`, etc.).
+
+### Parameters
+- **legusdf** (DataFrame)
+
+### Returns
+- **legusdf** (DataFrame): With unused columns removed.
+
+### Example
+    legusdf = drop_unsedcols(legusdf)
+
+---
+
+# 3. Analysis Functions
+
+## 3.1 `avg_minerals_all(legusdf)`
+
+### Purpose
+Computes the mean value of key nutrient variables and visualizes them with a bar plot.
+
+### Parameters
+- **legusdf** (DataFrame)
+
+### Returns
+None (displays a plot)
+
+### Produces
+- A seaborn bar chart of average nutrient levels.
+- Automatic data labels for each bar.
+
+### Example
+    avg_minerals_all(legusdf)
+
+---
+
+## 3.2 `corr_heatmap_minerals(legusdf)`
+
+### Purpose
+Generates a correlation matrix and plots a bottom-triangle heatmap.
+
+### Parameters
+- **legusdf** (DataFrame)
+
+### Returns
+None (displays a figure)
+
+### Produces
+- A seaborn heatmap with correlation coefficients.
+- A mask to hide the upper triangle for cleaner readability.
+
+### Example
+    corr_heatmap_minerals(legusdf)
+
+---
+
+# 4. Pipeline Driver
+
+## 4.1 `main()`
+
+### Purpose
+Runs the full data pipeline:
+
+1. Load API key  
+2. Retrieve data  
+3. Convert to DataFrame  
+4. Create nutrient columns  
+5. Clean numerical fields  
+6. Categorize descriptions  
+7. Reorder and prune DataFrame  
+8. Generate plots  
+9. Export final dataset as `legus_cleaned.csv`
+
+### Parameters
+None
+
+### Returns
+None (executes pipeline + writes CSV + displays charts)
+
+
