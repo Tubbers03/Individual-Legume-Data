@@ -14,6 +14,7 @@ def load_data():
 
 df = load_data()
 
+# Make the title 
 st.set_page_config(page_title="Legume Nutrient Dashboard", layout="wide")
 st.title("🌱 Legume Nutrient Dashboard")
 st.write("Explore nutrient profiles for legumes using your cleaned USDA dataset.")
