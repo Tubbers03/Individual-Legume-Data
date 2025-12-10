@@ -31,6 +31,8 @@ uv run python main.py
 uv run streamlit run src/final_project_demo/streamlit_app.py
 ```
 
+**Important:** Always run from the project root directory so the app can locate `legus_cleaned.csv`.
+
 ## Notes
 - The pipeline filters for Data Type: `Foundation` and Category: `Legumes and Legume Products`.
 - Ensure `api.txt` exists in the project root before running `main.py`.

@@ -87,3 +87,4 @@ heatmap = px.imshow(
 )
 
 st.plotly_chart(heatmap, use_container_width=True)
+
