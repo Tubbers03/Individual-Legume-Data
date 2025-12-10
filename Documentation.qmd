@@ -213,6 +213,25 @@ None (displays a figure)
 
 ---
 
+## 3.3 `sidebyside_boxes(legusdf)`
+
+### Purpose
+Generates four box plots for data in the “Beans” Category One for protein, fat, carbs, and calories.
+
+### Parameters
+- **legusdf** (DataFrame)
+
+### Returns
+None (displays box plots)
+
+### Produces
+- 4 unique box plots
+
+### Example
+    sidebyside_boxes(legusdf)
+
+---
+
 # 4. Pipeline Driver
 
 ## 4.1 `main()`
