@@ -1,31 +1,75 @@
-# final-project-demo
+# Legume Nutrient Dashboard
 
-Teaching scaffold for STAT 386 final projects. The repository bundles a Python package, Quarto site, automated tests, and a customizable Streamlit prototype.
+The **Legume Nutrient Dashboard** is an interactive visualization tool developed for a STAT 386 final project.  
+It uses USDA FoodData Central API data (Foundation Foods) to collect, clean, and visualize nutrient profiles for legume products.  
+The project includes a full API ingestion pipeline, nutrient extraction logic, a cleaning pipeline, and a Streamlit dashboard for exploration.
 
-## Quick start
+---
+
+The project retrieves data from the USDA FoodData Central API, focusing on:
+Category: "Legumes and Legume Products"
+Data type: "Foundation" foods only
+
+The data pipeline is implemented inside main.py and includes the following stages:
+
+### **1. Install dependencies**
+
+This project uses **uv** for environment and dependency management:
 
 ```bash
 uv sync
 uv run pytest
 ```
 
-## Streamlit prototype
+### **2. Generate the cleaned dataset**
+The main script calls the USDA API, extracts nutrients, cleans and formats the data, and outputs:
+legus_cleaned.csv
+Run:
+uv run python main.py
+This requires an api.txt file stored in the project root containing a valid USDA API key.
 
-- Edit `src/final_project_demo/streamlit_app.py` to point at your own data sources, cleaning logic, and visuals.
-- Launch the toy UI with:
-
-```bash
+### **3. Launch the Streamlit app**
 uv run streamlit run src/final_project_demo/streamlit_app.py
-```
 
-- Use the sidebar toggles to preview how `run_cleaning_pipeling` and `run_analysis_pipeline` outputs appear, then replace them with real charts or KPIs.
+The project retrieves data from the USDA FoodData Central API, focusing on:
+Category: "Legumes and Legume Products"
+Data type: "Foundation" foods only
 
-## Quarto site
+The data pipeline is implemented inside main.py and includes the following stages:
 
-Rebuild the public site (including the technical report placeholder) with:
+## **Dashboard Features (Streamlit)**
+The dashboard loads the cleaned dataset and provides three main interactive components.
+### **1. Legume Selector**
+Choose a legume category from the sidebar.
 
-```bash
-uv run quarto render
-```
+### **2. Radar Chart**
+Displays average nutrient content for:
+Protein
+Fat
+Carbs
+Starch
+Iron
+Magnesium
+Phosphorus
+Potassium
+Sodium
+Zinc
+Copper
+Manganese
+This allows comparison across nutrient groups visually.
 
-Serve locally via `uv run quarto preview` while authoring docs.
+### **3. Correlation Heatmap**
+An interactive Plotly heatmap showing nutrient correlations across all legumes.
+
+### **4. Dataset Preview
+A full data table of the cleaned dataset for transparency and exploration.
+
+### **Technologies Used
+Python 3.11+
+Streamlit (dashboard)
+pandas (data manipulation)
+requests (API calls)
+regex (nutrient and category extraction)
+seaborn & matplotlib (bar chart & heatmap)
+plotly (interactive Streamlit visualizations)
+uv (environment & dependency management)

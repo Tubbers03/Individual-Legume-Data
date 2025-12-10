@@ -168,6 +168,29 @@ def avg_minerals_all(legusdf):
     plt.show()
 
 
+def sidebyside_boxes(legusdf): 
+    beans = legusdf[legusdf["Category"] == "Beans"]
+
+    filtered_beans = beans[(beans["Protein (g)"] < 150) &
+                       (beans["Fat (g)"] < 150) &
+                       (beans["Carbs (g)"] < 150) &
+                       (beans["Calories (kcal)"] < 150)]
+
+    # Select nutrients
+    nutrients = ["Protein (g)", "Fat (g)", "Carbs (g)", "Calories (kcal)"]
+
+    # Melt the dataframe from wide → long format
+    beans_melted = filtered_beans.melt(value_vars=nutrients, var_name="Nutrient", value_name="Value")
+
+    plt.figure(figsize=(10, 6))
+    sns.boxplot(data=beans_melted, x="Nutrient", y="Value")
+    plt.title("Nutrient Distributions for Beans")
+    plt.xlabel("Nutrient")
+    plt.ylabel("Value (per 100g)")
+
+    plt.show()
+
+
 def corr_heatmap_minerals(legusdf):
     numeric = legusdf.select_dtypes(include="number")
     # Compute correlation matrix
