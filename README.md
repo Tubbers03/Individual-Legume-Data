@@ -1,75 +1,61 @@
 # Legume Nutrient Dashboard
 
-The **Legume Nutrient Dashboard** is an interactive visualization tool developed for a STAT 386 final project.  
-It uses USDA FoodData Central API data (Foundation Foods) to collect, clean, and visualize nutrient profiles for legume products.  
-The project includes a full API ingestion pipeline, nutrient extraction logic, a cleaning pipeline, and a Streamlit dashboard for exploration.
+The Legume Nutrient Dashboard is an interactive Streamlit app created for a STAT 386 final project. It collects Foundation-food data from the USDA FoodData Central API (category: "Legumes and Legume Products"), extracts and cleans nutrient information, and provides interactive visualizations for exploration.
 
 ---
 
-The project retrieves data from the USDA FoodData Central API, focusing on:
-Category: "Legumes and Legume Products"
-Data type: "Foundation" foods only
+## Quickstart
 
-The data pipeline is implemented inside main.py and includes the following stages:
+Prerequisites:
+- A working Python environment (see `pyproject.toml` / `myenv`).
+- A USDA API key saved in a file named `api.txt` at the project root (one-line file containing the key).
 
-### **1. Install dependencies**
-
-This project uses **uv** for environment and dependency management:
+1) Sync environment & run tests (project uses `uv` for environment management):
 
 ```bash
 uv sync
 uv run pytest
 ```
 
-### **2. Generate the cleaned dataset**
-The main script calls the USDA API, extracts nutrients, cleans and formats the data, and outputs:
-legus_cleaned.csv
-Run:
+2) Generate the cleaned dataset
+
+The main script fetches data from the USDA API, extracts nutrients, and writes `legus_cleaned.csv`.
+
+```bash
 uv run python main.py
-This requires an api.txt file stored in the project root containing a valid USDA API key.
+```
 
-### **3. Launch the Streamlit app**
+3) Launch the Streamlit dashboard
+
+```bash
 uv run streamlit run src/final_project_demo/streamlit_app.py
+```
 
-The project retrieves data from the USDA FoodData Central API, focusing on:
-Category: "Legumes and Legume Products"
-Data type: "Foundation" foods only
+## Notes
+- The pipeline filters for Data Type: `Foundation` and Category: `Legumes and Legume Products`.
+- Ensure `api.txt` exists in the project root before running `main.py`.
 
-The data pipeline is implemented inside main.py and includes the following stages:
+## Dashboard Features
 
-## **Dashboard Features (Streamlit)**
-The dashboard loads the cleaned dataset and provides three main interactive components.
-### **1. Legume Selector**
-Choose a legume category from the sidebar.
+- **Legume Selector:** pick a legume category from the sidebar to filter results.
+- **Radar Chart:** compares average nutrient content across groups (e.g., Protein, Fat, Carbs, Starch, and selected minerals).
+- **Correlation Heatmap:** interactive Plotly heatmap showing nutrient correlations across the dataset.
+- **Dataset Preview:** table view of the cleaned `legus_cleaned.csv` for inspection.
 
-### **2. Radar Chart**
-Displays average nutrient content for:
-Protein
-Fat
-Carbs
-Starch
-Iron
-Magnesium
-Phosphorus
-Potassium
-Sodium
-Zinc
-Copper
-Manganese
-This allows comparison across nutrient groups visually.
+## Technologies Used
 
-### **3. Correlation Heatmap**
-An interactive Plotly heatmap showing nutrient correlations across all legumes.
+- **Python:** 3.11+ (project environment in `myenv`)
+- **Streamlit:** dashboard UI
+- **pandas:** data manipulation
+- **requests:** USDA API calls
+- **regex:** nutrient and category extraction
+- **seaborn / matplotlib:** static charts
+- **plotly:** interactive visualizations
+- **uv:** environment & dependency management
 
-### **4. Dataset Preview
-A full data table of the cleaned dataset for transparency and exploration.
+## Files of interest
 
-### **Technologies Used
-Python 3.11+
-Streamlit (dashboard)
-pandas (data manipulation)
-requests (API calls)
-regex (nutrient and category extraction)
-seaborn & matplotlib (bar chart & heatmap)
-plotly (interactive Streamlit visualizations)
-uv (environment & dependency management)
+- `main.py` — main pipeline to fetch, clean, and save data
+- `legus_cleaned.csv` — cleaned dataset output
+- `src/final_project_demo/streamlit_app.py` — Streamlit dashboard
+
