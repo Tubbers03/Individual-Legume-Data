@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
-import plotly.express as px
-import plotly.graph_objects as go
+# import plotly.express as px
+# import plotly.graph_objects as go
 
 
 # -----------------------------------
@@ -47,21 +47,21 @@ legume_df = df[df["Category"] == legume].mean(numeric_only=True)
 # -----------------------------------
 st.subheader(f"Radar Chart for {legume}")
 
-fig = go.Figure()
+# fig = go.Figure()
 
-fig.add_trace(go.Scatterpolar(
-    r=[legume_df[m] for m in radar_minerals],
-    theta=radar_minerals,
-    fill='toself',
-    name=legume
-))
+# fig.add_trace(go.Scatterpolar(
+#     r=[legume_df[m] for m in radar_minerals],
+#     theta=radar_minerals,
+#     fill='toself',
+#     name=legume
+# ))
 
-fig.update_layout(
-    polar=dict(radialaxis=dict(visible=True)),
-    showlegend=False
-)
+# fig.update_layout(
+#     polar=dict(radialaxis=dict(visible=True)),
+#     showlegend=False
+# )
 
-st.plotly_chart(fig, use_container_width=True)
+# st.plotly_chart(fig, use_container_width=True)
 
 
 # -----------------------------------
@@ -79,12 +79,12 @@ st.subheader("Correlation Heatmap of Nutrients")
 numeric = df.select_dtypes(include="number")
 corr = numeric.corr()
 
-heatmap = px.imshow(
-    corr,
-    text_auto=".2f",
-    aspect="auto",
-    color_continuous_scale="RdBu_r"
-)
+# heatmap = px.imshow(
+#     corr,
+#     text_auto=".2f",
+#     aspect="auto",
+#     color_continuous_scale="RdBu_r"
+# )
 
-st.plotly_chart(heatmap, use_container_width=True)
+# st.plotly_chart(heatmap, use_container_width=True)
 
