@@ -1,1 +1,161 @@
-/* css styles */
+/* Custom styles for the Legume Nutrient Dashboard website */
+
+/* Body and general styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+/* Header styling */
+.navbar {
+  background-color: #2c3e50 !important;
+  border-bottom: 3px solid #3498db;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #ecf0f1 !important;
+}
+
+.navbar-nav .nav-link {
+  color: #bdc3c7 !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ecf0f1 !important;
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Main content area */
+.main-content {
+  background-color: white;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+h1 {
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Code blocks */
+code {
+  background-color: #f1f3f4;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background-color: #3498db;
+  color: white;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+tr:hover {
+  background-color: #e9ecef;
+}
+
+/* Buttons and links */
+.btn {
+  background-color: #3498db;
+  border-color: #3498db;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.25rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+  border-color: #2980b9;
+  color: white;
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  background-color: #2c3e50;
+  color: #bdc3c7;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main-content {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .navbar-nav {
+    text-align: center;
+  }
+
+  table {
+    font-size: 0.9em;
+  }
+}
+
+/* Custom classes for specific elements */
+.highlight {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.warning {
+  background-color: #f8d7da;
+  border-left: 4px solid #dc3545;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.info {
+  background-color: #d1ecf1;
+  border-left: 4px solid #17a2b8;
+  padding: 1rem;
+  margin: 1rem 0;
+}
