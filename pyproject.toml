@@ -10,7 +10,7 @@ Issues = "https://github.com/Tubbers03/Individual-Legume-Data/issues"
 
 [project]
 name = "legume-nutrient-dashboard"
-version = "0.1.0"
+version = "0.1.1"
 description = "Interactive dashboard for analyzing legume nutrient data from USDA FoodData Central"
 readme = "README.md"
 requires-python = ">=3.11"
