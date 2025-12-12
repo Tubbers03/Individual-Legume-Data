@@ -3,7 +3,8 @@ project:
   output-dir: docs
 
 website:
-  title: "website"
+  title: "Legume Nutrient Dashboard"
+  site-url: https://Tubbers03.github.io/Individual-Legume-Data/
   navbar:
     left:
       - href: index.qmd
