@@ -8,7 +8,7 @@ description: "Project summary, methodology, and findings placeholder"
 This project builds a reproducible data pipeline and interactive dashboard to explore nutrient profiles for legumes using USDA FoodData Central (Foundation foods). Primary deliverables are:
 
 - a cleaned dataset (`legus_cleaned.csv`) that consolidates nutrient measurements and metadata for items in the "Legumes and Legume Products" category, and
-- an interactive Streamlit dashboard (`src/final_project_demo/streamlit_app.py`) to explore nutrient distributions, compare groups, and visualize correlations.
+- an interactive Streamlit dashboard (`src/legume_nutrient_dashboard/streamlit_app.py`) to explore nutrient distributions, compare groups, and visualize correlations.
 
 Key takeaways:
 
@@ -73,7 +73,7 @@ Data access notes:
 ```bash
 uv sync
 uv run python main.py      # regenerates legus_cleaned.csv
-uv run streamlit run src/final_project_demo/streamlit_app.py
+uv run streamlit run src/legume_nutrient_dashboard/streamlit_app.py
 ```
 
 ## Results & Diagnostics

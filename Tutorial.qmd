@@ -1,20 +1,235 @@
 ---
-title: "Getting Started"
+title: "Legume Nutrient Dashboard Tutorial"
+subtitle: "A Complete Guide to Exploring Nutrient Data"
+description: "Learn how to use the interactive dashboard to analyze legume nutritional profiles from USDA data"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: false
+    code-tools: true
 jupyter: python3
 ---
 
-Here is how you use my package:
+## Overview
 
-```{python}
-from final_project_demo import add
+Welcome to the **Legume Nutrient Dashboard** tutorial! This interactive web application helps you explore nutritional data for various legumes using data from the USDA FoodData Central API.
 
-print(add(2, 19))
+### What You'll Learn
+
+- How to set up and run the data pipeline
+- Navigate the interactive Streamlit dashboard
+- Analyze nutrient profiles across different legume categories
+- Create visualizations for nutrient comparisons
+- Export and interpret results
+
+### Prerequisites
+
+Before starting, make sure you have:
+
+- Python 3.11+ installed
+- A USDA API key (get one at [FoodData Central](https://fdc.nal.usda.gov/api-key-signup.html))
+- The project files downloaded
+
+## Setting Up Your Environment
+
+### 1. Install Dependencies
+
+The project uses `uv` for dependency management. Run these commands in your terminal:
+
+```bash
+# Navigate to the project directory
+cd path/to/Individual-Legume-Data
+
+# Activate the virtual environment and install dependencies
+source myenv/bin/activate
+uv sync
 ```
 
+### 2. Set Up Your API Key
 
-```{python}
-from final_project_demo import run_analysis_pipeline, run_cleaning_pipeling
+Create a file called `api.txt` in the project root directory and paste your USDA API key (just the key, no quotes or extra text).
 
-run_cleaning_pipeling()
-run_analysis_pipeline()
+```bash
+# Example: create the API key file
+echo "your_api_key_here" > api.txt
 ```
+
+::: {.callout-warning}
+**Important:** Never commit your `api.txt` file to version control. It's already in `.gitignore`.
+:::
+
+## Running the Data Pipeline
+
+### Generate the Cleaned Dataset
+
+The core of the project is a data pipeline that fetches legume nutrient data from the USDA API and processes it into a clean, analysis-ready format.
+
+```bash
+# Run the main data pipeline
+uv run python main.py
+```
+
+This script will:
+
+1. **Connect to USDA FoodData Central API** using your API key
+2. **Fetch legume data** from the "Legumes and Legume Products" category
+3. **Extract nutrient information** for each food item
+4. **Clean and standardize** the data
+5. **Save results** to `legus_cleaned.csv`
+
+The process typically takes 2-5 minutes depending on API response times.
+
+### What the Data Contains
+
+After running the pipeline, you'll have a CSV file with columns including:
+
+- **Food Item Names** and descriptions
+- **Category** classifications (beans, lentils, peas, etc.)
+- **Nutrient Measurements** (protein, fat, carbs, vitamins, minerals)
+- **Units** and serving information
+- **Data Source** metadata
+
+## Launching the Dashboard
+
+### Start the Streamlit App
+
+Once you have the cleaned data, launch the interactive dashboard:
+
+```bash
+# Launch the Streamlit dashboard
+uv run streamlit run src/legume_nutrient_dashboard/streamlit_app.py
+```
+
+The dashboard will open in your default web browser at `http://localhost:8501`.
+
+### Dashboard Layout
+
+The dashboard has three main sections:
+
+#### 1. Navigation Sidebar
+
+- **Legume Selector**: Choose a specific legume category to filter results
+- **Real-time filtering** affects all visualizations
+
+#### 2. Radar Chart
+
+This interactive chart shows average nutrient content across selected legumes:
+
+- **Axes**: Protein, Fat, Carbohydrates, Starch, and key minerals
+- **Scaling**: Values are normalized for comparison
+- **Interactivity**: Hover for exact values, zoom and pan
+
+#### 3. Correlation Heatmap
+
+- **Shows relationships** between different nutrients
+- **Color coding**: Red for positive correlations, blue for negative
+- **Interactive tooltips** with correlation coefficients
+
+#### 4. Data Table
+
+- **Complete dataset** view with search and filtering
+- **Export options** for further analysis
+- **Pagination** for large datasets
+
+## Using the Dashboard
+
+### Example Workflow
+
+1. **Select a legume category** from the sidebar (e.g., "Beans, kidney")
+2. **Examine the radar chart** to see how this legume compares nutritionally
+3. **Check the correlation heatmap** to understand nutrient relationships
+4. **Browse the data table** for detailed measurements
+
+### Interpreting Results
+
+#### Nutrient Profiles
+
+Different legumes have distinct nutritional profiles:
+
+- **Lentils and chickpeas**: High in protein and fiber
+- **Black beans**: Rich in antioxidants and minerals
+- **Peanuts**: Higher fat content but also more calories
+
+#### Correlation Insights
+
+The heatmap might reveal:
+
+- **Protein vs. Minerals**: Often positively correlated
+- **Fat vs. Carbohydrates**: Sometimes trade-offs
+- **Vitamin patterns**: How different nutrients cluster together
+
+## Advanced Usage
+
+### Custom Analysis
+
+You can extend the dashboard by modifying the source code:
+
+```python
+# Example: Add a new nutrient to the radar chart
+radar_minerals = [
+    "Protein (g)", "Fat (g)", "Carbs (g)", "Starch (g)",
+    "Iron (mg)", "Magnesium (mg)", "Phosphorus (mg)",
+    "Potassium (mg)", "Sodium (mg)", "Zinc (mg)",
+    "Copper (mg)", "Manganese (mg)",
+    "Vitamin C (mg)"  # Add new nutrients here
+]
+```
+
+### Data Export
+
+The dashboard includes options to:
+
+- **Download filtered datasets** as CSV
+- **Export visualizations** as images
+- **Copy data** for use in other tools
+
+## Troubleshooting
+
+### Common Issues
+
+#### API Key Problems
+```
+Error: Invalid API key
+```
+**Solution**: Verify your `api.txt` file contains only the API key with no extra characters.
+
+#### Missing Data
+```
+FileNotFoundError: legus_cleaned.csv
+```
+**Solution**: Run `python main.py` first to generate the dataset.
+
+#### Port Already in Use
+```
+Error: Port 8501 is already in use
+```
+**Solution**: Use a different port: `streamlit run app.py --server.port 8502`
+
+### Performance Tips
+
+- **Large datasets**: The app handles thousands of food items efficiently
+- **Browser compatibility**: Works best in Chrome/Firefox
+- **Mobile viewing**: Dashboard is responsive but desktop offers best experience
+
+## Next Steps
+
+### Further Exploration
+
+- **Compare categories**: Try different legume types to see nutritional differences
+- **Seasonal analysis**: Look for patterns in raw vs. processed foods
+- **Custom visualizations**: Modify the code to add new chart types
+
+### Contributing
+
+Found a bug or want to add a feature? Check the main project documentation for contribution guidelines.
+
+### Resources
+
+- [USDA FoodData Central Documentation](https://fdc.nal.usda.gov/)
+- [Streamlit Documentation](https://docs.streamlit.io/)
+- [Plotly Chart Types](https://plotly.com/python/)
+
+---
+
+**Happy exploring!** 🌱 The legume nutrient dashboard is designed to make nutritional data accessible and actionable for researchers, students, and health enthusiasts.
