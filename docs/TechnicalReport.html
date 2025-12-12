@@ -6,9 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Project summary, methodology, and findings placeholder">
+<meta name="author" content="Logan Chavez, Toby Alley">
+<meta name="dcterms.date" content="2025-12-01">
+<meta name="description" content="Complete data science workflow for analyzing legume nutrient data from USDA FoodData Central">
 
-<title>Technical Report – Legume Nutrient Dashboard</title>
+<title>Beans and Legume Data Report – Legume Nutrient Dashboard</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,7 +144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./TechnicalReport.html" aria-current="page"> 
-<span class="menu-text">Technical Report</span></a>
+<span class="menu-text">Final Report</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -159,13 +161,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary">Executive Summary</a></li>
-  <li><a href="#project-context" id="toc-project-context" class="nav-link" data-scroll-target="#project-context">Project Context</a></li>
-  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a></li>
-  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
-  <li><a href="#results-diagnostics" id="toc-results-diagnostics" class="nav-link" data-scroll-target="#results-diagnostics">Results &amp; Diagnostics</a></li>
-  <li><a href="#discussion-next-steps" id="toc-discussion-next-steps" class="nav-link" data-scroll-target="#discussion-next-steps">Discussion &amp; Next Steps</a></li>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a></li>
+  <li><a href="#data-wrangling-and-cleaning" id="toc-data-wrangling-and-cleaning" class="nav-link" data-scroll-target="#data-wrangling-and-cleaning">Data Wrangling and Cleaning</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
+  <li><a href="#findings" id="toc-findings" class="nav-link" data-scroll-target="#findings">Findings</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -174,19 +176,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Technical Report</h1>
+<h1 class="title">Beans and Legume Data Report</h1>
+<p class="subtitle lead">STAT 386 Final Project</p>
 </div>
 
 <div>
   <div class="description">
-    Project summary, methodology, and findings placeholder
+    Complete data science workflow for analyzing legume nutrient data from USDA FoodData Central
   </div>
 </div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Logan Chavez, Toby Alley </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 1, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -196,129 +211,151 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="executive-summary" class="level2">
-<h2 class="anchored" data-anchor-id="executive-summary">Executive Summary</h2>
-<p>This project builds a reproducible data pipeline and interactive dashboard to explore nutrient profiles for legumes using USDA FoodData Central (Foundation foods). Primary deliverables are:</p>
-<ul>
-<li>a cleaned dataset (<code>legus_cleaned.csv</code>) that consolidates nutrient measurements and metadata for items in the “Legumes and Legume Products” category, and</li>
-<li>an interactive Streamlit dashboard (<code>src/legume_nutrient_dashboard/streamlit_app.py</code>) to explore nutrient distributions, compare groups, and visualize correlations.</li>
-</ul>
-<p>Key takeaways:</p>
-<ul>
-<li>Nutrient variability: Protein and carbohydrate content vary substantially across legume subtypes; several minerals (e.g., iron, magnesium) show moderate positive correlations with protein.</li>
-<li>Group-level patterns: Cooked vs.&nbsp;raw / canned vs.&nbsp;dried products show systematic differences in sodium and water-soluble vitamins.</li>
-<li>Recommendations: Use the cleaned dataset for downstream nutritional modeling and incorporate serving-size normalization when reporting public-facing summaries.</li>
-</ul>
-<p>:::(Put any numerical findings right here)</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="how-did-i-pick-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="how-did-i-pick-the-data">How did I pick the data?</h3>
+<p>This project demonstrates our complete data science workflow including data acquisition through an API call, wrangling, analysis, and insights. We selected data from the USDA FoodData Central (FDC) API, focusing specifically on Foundation Foods in the Legumes and Legume Products category. Our goal was to build functions that automatically retrieve nutrient profiles, clean the resulting JSON structure, organize nutrient fields into a usable dataset, and generate exploratory analyses such as summary visualizations and correlation heatmaps. This report describes the pipeline and summarizes how another user could replicate the workflow.</p>
 </section>
-<section id="project-context" class="level2">
-<h2 class="anchored" data-anchor-id="project-context">Project Context</h2>
-<p>Motivation: Provide a concise, open dataset and exploratory dashboard for students and researchers interested in legume nutrient profiles and dietary modeling.</p>
-<p>Stakeholders:</p>
-<ul>
-<li>Course instructors and classmates (STAT 386)</li>
-<li>Nutrition researchers and data journalists interested in food composition data</li>
-<li>Anyone interested in reproducible pipelines for public nutrition data</li>
-</ul>
-<p>Success criteria:</p>
-<ul>
-<li>Reproducible ingestion pipeline from the USDA API</li>
-<li>Cleaned, documented dataset saved as <code>legus_cleaned.csv</code></li>
-<li>Interactive dashboard that supports filtering by category, nutrient comparisons (radar chart), and correlation analysis</li>
-</ul>
-</section>
-<section id="data-sources" class="level2">
-<h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
-<ul>
-<li>Primary dataset: USDA FoodData Central — Foundation Foods (queried by category: “Legumes and Legume Products”). Accessed via the FoodData Central API; an API key is required and should be stored in <code>api.txt</code> in the project root.</li>
-<li>Output dataset: <code>legus_cleaned.csv</code> (generated by <code>main.py</code>) contains standardized nutrient columns, units, and categorical metadata.</li>
-<li>Supplementary references: Any literature or standard nutrient tables referenced should be listed here (add links and citations).</li>
-</ul>
-<p>Data access notes:</p>
-<ul>
-<li>USDA FoodData Central data are public; cite the FoodData Central documentation in the final report and note any license/attribution requirements.</li>
-<li>Refresh cadence: the pipeline can be re-run to refresh data; include the API key management policy if sharing the pipeline publicly.</li>
-</ul>
-</section>
-<section id="methodology" class="level2">
-<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
+<section id="main-questions" class="level3">
+<h3 class="anchored" data-anchor-id="main-questions">Main questions?</h3>
+<p>We began this analysis with two main questions:</p>
 <ol type="1">
-<li>Data acquisition</li>
+<li><strong>How do legume nutrients correlate with one another?</strong></li>
+<li><strong>What nutrients are present in the highest quantities in legumes?</strong></li>
 </ol>
-<ul>
-<li>The script <code>main.py</code> queries the FoodData Central API for items where <code>dataType == "Foundation"</code> and <code>category == "Legumes and Legume Products"</code>.</li>
-<li>The API key is read from <code>api.txt</code> in the project root. Request throttling and basic retry logic are implemented in the ingestion step.</li>
-</ul>
-<ol start="2" type="1">
-<li>Cleaning pipeline</li>
-</ol>
-<ul>
-<li>Parse nutrient lists and map USDA nutrient IDs / names to consistent column names (e.g., <code>protein_g</code>, <code>fat_g</code>, <code>carbs_g</code>, <code>iron_mg</code>).</li>
-<li>Normalize units where possible and drop or flag entries with missing critical metadata (e.g., missing serving size).</li>
-<li>Deduplicate records by food ID and perform simple plausibility checks (range checks for nutrients per 100 g).</li>
-</ul>
-<ol start="3" type="1">
-<li>Analysis workflow</li>
-</ol>
-<ul>
-<li>Descriptive statistics: mean, median, IQR for key nutrients by category and preparation method.</li>
-<li>Visualization: radar chart (group means), correlation heatmap (pairwise nutrient correlations using Pearson or Spearman as appropriate), and distribution plots.</li>
-<li>Optional modeling: linear models or clustering to identify nutrient-based groupings.</li>
-</ul>
-<ol start="4" type="1">
-<li>Tooling and reproducibility</li>
-</ol>
-<ul>
-<li>Environment: Python 3.11+ (project <code>myenv</code>), dependencies listed in <code>pyproject.toml</code> and managed with <code>uv</code>.</li>
-<li>Key packages: <code>pandas</code>, <code>requests</code>, <code>streamlit</code>, <code>plotly</code>, <code>seaborn</code>, <code>matplotlib</code>, etc.</li>
-<li>Reproducible commands (run from project root):</li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> sync</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run python main.py      <span class="co"># regenerates legus_cleaned.csv</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run streamlit run src/legume_nutrient_dashboard/streamlit_app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="results-diagnostics" class="level2">
-<h2 class="anchored" data-anchor-id="results-diagnostics">Results &amp; Diagnostics</h2>
-<p>This section should present the main quantitative findings, supporting tables, and figures. Below is a suggested structure and placeholders you can replace with produced outputs.</p>
+<section id="main-takeaways-from-the-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="main-takeaways-from-the-analysis">Main takeaways from the analysis?</h3>
 <ul>
-<li><p>Dataset summary table: number of items, categories represented, rows/columns in <code>legus_cleaned.csv</code>.</p></li>
-<li><p>Key figures (place images in <code>figures/</code> and reference them here):</p>
-<ul>
-<li><p>Radar chart comparing group mean nutrients. Embed with Quarto/Markdown once the image exists:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/radar_chart.png)</span>{width=80%}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>Correlation heatmap (interactive Plotly version available in the Streamlit app):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/correlation_heatmap.png)</span>{width=80%}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-</ul></li>
-<li><p>Example diagnostics and tables:</p>
-<ul>
-<li>Table: top 10 legume items by protein per 100 g (CSV or Markdown table).</li>
-<li>Table: nutrient missingness summary (percent missing by column).</li>
-</ul></li>
+<li><strong>Protein correlations</strong>: Protein shows high correlation with most nutrients (0.83-0.96) except sodium</li>
+<li><strong>Calorie relationships</strong>: Calories correlate strongly with fat (0.67) and carbohydrates (0.71)</li>
+<li><strong>Dominant minerals</strong>: Phosphorus is the most abundant mineral (1,076 mg/100g average), followed by magnesium (384 mg/100g)</li>
+<li><strong>Data pipeline success</strong>: Successfully created a reproducible workflow from API data to cleaned dataset and visualizations</li>
 </ul>
-<p>Include test statistics, confidence intervals, and effect sizes where appropriate. If models are used, provide model diagnostics (R^2, residual plots, cross-validation results).</p>
 </section>
-<section id="discussion-next-steps" class="level2">
-<h2 class="anchored" data-anchor-id="discussion-next-steps">Discussion &amp; Next Steps</h2>
-<p>Interpretation: Discuss what the main findings imply for nutrition research or public-facing dashboards. Mention any surprising correlations or distributions and provide plausible biological or data-quality explanations.</p>
-<p>Limitations:</p>
+</section>
+<section id="data-collection" class="level2">
+<h2 class="anchored" data-anchor-id="data-collection">Data Collection</h2>
+<p>Data was collected from the USDA FoodData Central API, which provides standardized nutrient measurements for thousands of foods. To ensure reproducibility, we created:</p>
 <ul>
-<li>The dataset is limited to items categorized under FoodData Central’s “Legumes and Legume Products” and to entries labeled as Foundation; this may omit some commercially relevant foods.</li>
-<li>Variation in serving definitions and preparation state (raw/cooked/canned) can confound direct comparisons; recommend standardizing to per-100 g where possible.</li>
-<li>API-driven ingestion depends on the USDA’s labeling and completeness; some nutrient entries may be missing or estimated.</li>
+<li>A function to read the API key (<code>read_api_key()</code>)</li>
+<li>A function to send paginated queries (<code>call_api()</code>)</li>
 </ul>
-<p>Next steps and recommendations:</p>
+<p>The API returns a list of JSON objects containing metadata and nested nutrient lists. Pagination was handled through a simple loop (for pages 1–5), accumulating all returned rows into a single list.</p>
+<section id="reproducibility-steps" class="level3">
+<h3 class="anchored" data-anchor-id="reproducibility-steps">Reproducibility Steps</h3>
+<p>To replicate data collection:</p>
+<ol type="1">
+<li><strong>Obtain an API key</strong> from the USDA FDC website</li>
+<li><strong>Save it</strong> in a local <code>api.txt</code> file (one line only)</li>
+<li><strong>Run the package</strong>’s <code>main()</code> script or call <code>call_api(api_key)</code> manually</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run python main.py  <span class="co"># Regenerates legus_cleaned.csv</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="data-wrangling-and-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling-and-cleaning">Data Wrangling and Cleaning</h2>
+<p>Complexity arose in our work because the nutrient values existed inside nested lists of dictionaries. We structured data wrangling around several modular functions.</p>
+<section id="data-processing-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="data-processing-pipeline">Data Processing Pipeline</h3>
+<p><strong><code>create_df()</code></strong>: Converts raw API rows into a pandas DataFrame and filters to <code>dataType == "Foundation"</code> to maintain consistency in nutrient definitions.</p>
+<p><strong>Nutrient Extraction</strong>: The raw JSON stores all nutrient values inside <code>foodNutrients</code>, a long list of nutrient dictionaries for each food item. To standardize extraction, we built:</p>
 <ul>
-<li>Expand the dashboard to allow serving-size normalization and on-demand unit conversions.</li>
-<li>Add user-driven comparison exports (CSV / image) for reproducible reporting.</li>
-<li>Perform clustering or dimensionality reduction (PCA/UMAP) to identify nutrient-based food groups and share results in the report.</li>
+<li><code>extract_nutrient(nutrient_list, target)</code>: Returns the amount for a specific nutrient</li>
+<li><code>nutrient_cols(df)</code>: Applies the extractor to create one column per nutrient of interest</li>
 </ul>
-<p>References and Appendix:</p>
+<p>This step flattens the dataset into a traditional rectangular format suitable for analysis.</p>
+</section>
+<section id="data-cleaning-functions" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning-functions">Data Cleaning Functions</h3>
+<p><strong><code>clean_cols(df)</code></strong>: Handles missing values (filling NA with zero), numeric rounding (two decimal places), and consistent column formatting.</p>
+<p><strong><code>categorize(df)</code></strong>: Using regex, separates USDA description strings into: - <strong>Category</strong> (e.g., “Beans”) - <strong>Type</strong> (e.g., “black, cooked”)</p>
+<p><strong><code>reorder_df(df)</code></strong> and <strong><code>drop_unusedcols(df)</code></strong>: Drop unused metadata fields and reorder columns for readability.</p>
+</section>
+<section id="final-output" class="level3">
+<h3 class="anchored" data-anchor-id="final-output">Final Output</h3>
+<p>The result is a clean, analysis-ready dataset saved as <code>legus_cleaned.csv</code>.</p>
+</section>
+</section>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<p>Our analyses illustrate how the cleaned dataset can be explored to answer nutritional questions. The package includes three built-in visualizations.</p>
+<section id="avg_minerals_alldf" class="level3">
+<h3 class="anchored" data-anchor-id="avg_minerals_alldf"><code>avg_minerals_all(df)</code></h3>
+<p>Computes mean values for selected nutrients and produces a labeled bar chart. This visualization provides a high-level overview of nutrient density across the entire legume category.</p>
+<p><strong>Usage extensions</strong>: Users can modify the minerals list, group by Category or Type, or compare cooked vs.&nbsp;raw varieties.</p>
+</section>
+<section id="corr_heatmap_mineralsdf" class="level3">
+<h3 class="anchored" data-anchor-id="corr_heatmap_mineralsdf"><code>corr_heatmap_minerals(df)</code></h3>
+<p>Computes pairwise correlations for all numeric columns and displays a bottom-triangle heatmap. This helps identify:</p>
 <ul>
-<li>Cite FoodData Central and any literature sources used for interpretation. Attach cleaned data dictionary for <code>legus_cleaned.csv</code> (column descriptions, units, and source nutrient IDs).</li>
+<li>Nutrients that co-occur frequently</li>
+<li>Redundant variables useful for dimensionality reduction</li>
+<li>Possible biological or processing-based nutrient relationships</li>
 </ul>
-<p>Appendix: ::: (do we need to add anything to the appendix?)</p>
+</section>
+<section id="sidebyside_boxesdf" class="level3">
+<h3 class="anchored" data-anchor-id="sidebyside_boxesdf"><code>sidebyside_boxes(df)</code></h3>
+<p>Creates side-by-side boxplots for Protein, Fat, Carbs, and Calories for all beans in the “Beans” Category. This helps identify how these nutrients compare across different bean varieties.</p>
+</section>
+</section>
+<section id="findings" class="level2">
+<h2 class="anchored" data-anchor-id="findings">Findings</h2>
+<section id="nutrient-correlations" class="level3">
+<h3 class="anchored" data-anchor-id="nutrient-correlations">Nutrient Correlations</h3>
+<p>To answer the question of which nutrients correlate most with one another, we created a correlation heatmap with conditional formatting. The findings were interesting, yet consistent with our prior assumptions.</p>
+<p><strong>Key insights</strong>:</p>
+<ul>
+<li><strong>Protein correlations</strong>: Protein was highly correlated with every nutrient we tracked outside of sodium (anywhere between 0.83 and 0.96)</li>
+<li><strong>Calorie relationships</strong>: Calories were highly correlated with fat (0.67) and carbs (0.71), which was expected</li>
+<li><strong>Sodium independence</strong>: Sodium showed minimal correlation with other nutrients, suggesting it’s primarily influenced by processing methods</li>
+</ul>
+</section>
+<section id="nutrient-amounts" class="level3">
+<h3 class="anchored" data-anchor-id="nutrient-amounts">Nutrient Amounts</h3>
+<p>Looking at nutrient amounts across the legume dataset was straightforward once we created our bar plot containing average mineral contents.</p>
+<p><strong>Dominant nutrients</strong>:</p>
+<ol type="1">
+<li><strong>Phosphorus</strong>: Highest amount at 1,076 mg per 100g sample (by far)</li>
+<li><strong>Magnesium</strong>: Second highest at 384 mg per 100g sample</li>
+<li><strong>Iron</strong>: 8.9 mg per 100g sample</li>
+<li><strong>Zinc</strong>: 3.6 mg per 100g sample</li>
+</ol>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Overall, we had a great time collecting, cleaning, and visualizing the USDA legume data. This project demonstrates how to design a reproducible data science workflow from scratch by:</p>
+<ol type="1">
+<li><strong>Collecting data</strong> through an external API</li>
+<li><strong>Wrangling nested JSON structures</strong> into a clean dataset</li>
+<li><strong>Producing meaningful analyses</strong> and visualizations</li>
+<li><strong>Packaging everything</strong> so others can easily reuse it</li>
+</ol>
+<p>The final package allows any user with a single API key to regenerate the full dataset and analyses exactly as we did, ensuring transparency, replicability, and extensibility.</p>
+<section id="technical-achievements" class="level3">
+<h3 class="anchored" data-anchor-id="technical-achievements">Technical Achievements</h3>
+<ul>
+<li><strong>Modular function design</strong>: Each step of the pipeline is contained in reusable functions</li>
+<li><strong>Error handling</strong>: Robust handling of missing data and API responses</li>
+<li><strong>Visualization suite</strong>: Multiple analysis perspectives (correlations, distributions, averages)</li>
+<li><strong>Package structure</strong>: Proper Python packaging with clear imports and documentation</li>
+</ul>
+</section>
+<section id="future-extensions" class="level3">
+<h3 class="anchored" data-anchor-id="future-extensions">Future Extensions</h3>
+<ul>
+<li>Add serving-size normalization features</li>
+<li>Implement user-driven comparison exports</li>
+<li>Expand to other food categories beyond legumes</li>
+<li>Add statistical modeling capabilities</li>
+</ul>
+<p>This project successfully demonstrates the complete data science lifecycle while providing valuable insights into legume nutrition that could inform dietary recommendations and food science research.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -395,7 +432,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/Tubbers03\.github\.io\/Individual-Legume-Data\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -49,6 +49,34 @@
     "text": "An interactive web application for analyzing legume nutritional data from the USDA FoodData Central API\nBuilt for STAT 386 • Data Science & Analysis"
   },
   {
+    "objectID": "index.html#project-overview",
+    "href": "index.html#project-overview",
+    "title": "Legume Nutrient Dashboard",
+    "section": "📊 Project Overview",
+    "text": "📊 Project Overview\nThis dashboard provides comprehensive analysis of legume nutritional profiles, featuring interactive visualizations and data insights from the USDA Foundation Foods database."
+  },
+  {
+    "objectID": "index.html#quick-access",
+    "href": "index.html#quick-access",
+    "title": "Legume Nutrient Dashboard",
+    "section": "🔗 Quick Access",
+    "text": "🔗 Quick Access\n\n\n📚 Documentation\nComplete API reference and usage guide\n\n\n🚀 Tutorial\nStep-by-step tutorial for beginners\n\n\n📋 Final Report\nDetailed methodology and findings\n\n\n🌐 Streamlit App\nInteractive Streamlit application"
+  },
+  {
+    "objectID": "index.html#key-features",
+    "href": "index.html#key-features",
+    "title": "Legume Nutrient Dashboard",
+    "section": "✨ Key Features",
+    "text": "✨ Key Features\n\nInteractive Data Visualization with radar charts and correlation analysis\nUSDA Data Integration for real-time nutritional information\nComprehensive Legume Database covering beans, lentils, peas, and more\nExport Capabilities for filtered datasets and analysis results"
+  },
+  {
+    "objectID": "index.html#technology-stack",
+    "href": "index.html#technology-stack",
+    "title": "Legume Nutrient Dashboard",
+    "section": "🛠️ Technology Stack",
+    "text": "🛠️ Technology Stack\nBuilt with modern data science tools: Python, Streamlit, Plotly, Pandas, and Quarto for documentation.\n\n\nDeveloped as part of STAT 386 coursework • Open source and available on PyPI"
+  },
+  {
     "objectID": "Tutorial.html",
     "href": "Tutorial.html",
     "title": "Legume Nutrient Dashboard Tutorial",
@@ -212,51 +240,51 @@
   {
     "objectID": "TechnicalReport.html",
     "href": "TechnicalReport.html",
-    "title": "Technical Report",
+    "title": "Beans and Legume Data Report",
     "section": "",
-    "text": "This project builds a reproducible data pipeline and interactive dashboard to explore nutrient profiles for legumes using USDA FoodData Central (Foundation foods). Primary deliverables are:\n\na cleaned dataset (legus_cleaned.csv) that consolidates nutrient measurements and metadata for items in the “Legumes and Legume Products” category, and\nan interactive Streamlit dashboard (src/legume_nutrient_dashboard/streamlit_app.py) to explore nutrient distributions, compare groups, and visualize correlations.\n\nKey takeaways:\n\nNutrient variability: Protein and carbohydrate content vary substantially across legume subtypes; several minerals (e.g., iron, magnesium) show moderate positive correlations with protein.\nGroup-level patterns: Cooked vs. raw / canned vs. dried products show systematic differences in sodium and water-soluble vitamins.\nRecommendations: Use the cleaned dataset for downstream nutritional modeling and incorporate serving-size normalization when reporting public-facing summaries.\n\n:::(Put any numerical findings right here)"
+    "text": "This project demonstrates our complete data science workflow including data acquisition through an API call, wrangling, analysis, and insights. We selected data from the USDA FoodData Central (FDC) API, focusing specifically on Foundation Foods in the Legumes and Legume Products category. Our goal was to build functions that automatically retrieve nutrient profiles, clean the resulting JSON structure, organize nutrient fields into a usable dataset, and generate exploratory analyses such as summary visualizations and correlation heatmaps. This report describes the pipeline and summarizes how another user could replicate the workflow.\n\n\n\nWe began this analysis with two main questions:\n\nHow do legume nutrients correlate with one another?\nWhat nutrients are present in the highest quantities in legumes?\n\n\n\n\n\nProtein correlations: Protein shows high correlation with most nutrients (0.83-0.96) except sodium\nCalorie relationships: Calories correlate strongly with fat (0.67) and carbohydrates (0.71)\nDominant minerals: Phosphorus is the most abundant mineral (1,076 mg/100g average), followed by magnesium (384 mg/100g)\nData pipeline success: Successfully created a reproducible workflow from API data to cleaned dataset and visualizations"
   },
   {
-    "objectID": "TechnicalReport.html#executive-summary",
-    "href": "TechnicalReport.html#executive-summary",
-    "title": "Technical Report",
+    "objectID": "TechnicalReport.html#introduction",
+    "href": "TechnicalReport.html#introduction",
+    "title": "Beans and Legume Data Report",
     "section": "",
-    "text": "This project builds a reproducible data pipeline and interactive dashboard to explore nutrient profiles for legumes using USDA FoodData Central (Foundation foods). Primary deliverables are:\n\na cleaned dataset (legus_cleaned.csv) that consolidates nutrient measurements and metadata for items in the “Legumes and Legume Products” category, and\nan interactive Streamlit dashboard (src/legume_nutrient_dashboard/streamlit_app.py) to explore nutrient distributions, compare groups, and visualize correlations.\n\nKey takeaways:\n\nNutrient variability: Protein and carbohydrate content vary substantially across legume subtypes; several minerals (e.g., iron, magnesium) show moderate positive correlations with protein.\nGroup-level patterns: Cooked vs. raw / canned vs. dried products show systematic differences in sodium and water-soluble vitamins.\nRecommendations: Use the cleaned dataset for downstream nutritional modeling and incorporate serving-size normalization when reporting public-facing summaries.\n\n:::(Put any numerical findings right here)"
+    "text": "This project demonstrates our complete data science workflow including data acquisition through an API call, wrangling, analysis, and insights. We selected data from the USDA FoodData Central (FDC) API, focusing specifically on Foundation Foods in the Legumes and Legume Products category. Our goal was to build functions that automatically retrieve nutrient profiles, clean the resulting JSON structure, organize nutrient fields into a usable dataset, and generate exploratory analyses such as summary visualizations and correlation heatmaps. This report describes the pipeline and summarizes how another user could replicate the workflow.\n\n\n\nWe began this analysis with two main questions:\n\nHow do legume nutrients correlate with one another?\nWhat nutrients are present in the highest quantities in legumes?\n\n\n\n\n\nProtein correlations: Protein shows high correlation with most nutrients (0.83-0.96) except sodium\nCalorie relationships: Calories correlate strongly with fat (0.67) and carbohydrates (0.71)\nDominant minerals: Phosphorus is the most abundant mineral (1,076 mg/100g average), followed by magnesium (384 mg/100g)\nData pipeline success: Successfully created a reproducible workflow from API data to cleaned dataset and visualizations"
   },
   {
-    "objectID": "TechnicalReport.html#project-context",
-    "href": "TechnicalReport.html#project-context",
-    "title": "Technical Report",
-    "section": "Project Context",
-    "text": "Project Context\nMotivation: Provide a concise, open dataset and exploratory dashboard for students and researchers interested in legume nutrient profiles and dietary modeling.\nStakeholders:\n\nCourse instructors and classmates (STAT 386)\nNutrition researchers and data journalists interested in food composition data\nAnyone interested in reproducible pipelines for public nutrition data\n\nSuccess criteria:\n\nReproducible ingestion pipeline from the USDA API\nCleaned, documented dataset saved as legus_cleaned.csv\nInteractive dashboard that supports filtering by category, nutrient comparisons (radar chart), and correlation analysis"
+    "objectID": "TechnicalReport.html#data-collection",
+    "href": "TechnicalReport.html#data-collection",
+    "title": "Beans and Legume Data Report",
+    "section": "Data Collection",
+    "text": "Data Collection\nData was collected from the USDA FoodData Central API, which provides standardized nutrient measurements for thousands of foods. To ensure reproducibility, we created:\n\nA function to read the API key (read_api_key())\nA function to send paginated queries (call_api())\n\nThe API returns a list of JSON objects containing metadata and nested nutrient lists. Pagination was handled through a simple loop (for pages 1–5), accumulating all returned rows into a single list.\n\nReproducibility Steps\nTo replicate data collection:\n\nObtain an API key from the USDA FDC website\nSave it in a local api.txt file (one line only)\nRun the package’s main() script or call call_api(api_key) manually\n\n# Example usage\nuv run python main.py  # Regenerates legus_cleaned.csv"
   },
   {
-    "objectID": "TechnicalReport.html#data-sources",
-    "href": "TechnicalReport.html#data-sources",
-    "title": "Technical Report",
-    "section": "Data Sources",
-    "text": "Data Sources\n\nPrimary dataset: USDA FoodData Central — Foundation Foods (queried by category: “Legumes and Legume Products”). Accessed via the FoodData Central API; an API key is required and should be stored in api.txt in the project root.\nOutput dataset: legus_cleaned.csv (generated by main.py) contains standardized nutrient columns, units, and categorical metadata.\nSupplementary references: Any literature or standard nutrient tables referenced should be listed here (add links and citations).\n\nData access notes:\n\nUSDA FoodData Central data are public; cite the FoodData Central documentation in the final report and note any license/attribution requirements.\nRefresh cadence: the pipeline can be re-run to refresh data; include the API key management policy if sharing the pipeline publicly."
+    "objectID": "TechnicalReport.html#data-wrangling-and-cleaning",
+    "href": "TechnicalReport.html#data-wrangling-and-cleaning",
+    "title": "Beans and Legume Data Report",
+    "section": "Data Wrangling and Cleaning",
+    "text": "Data Wrangling and Cleaning\nComplexity arose in our work because the nutrient values existed inside nested lists of dictionaries. We structured data wrangling around several modular functions.\n\nData Processing Pipeline\ncreate_df(): Converts raw API rows into a pandas DataFrame and filters to dataType == \"Foundation\" to maintain consistency in nutrient definitions.\nNutrient Extraction: The raw JSON stores all nutrient values inside foodNutrients, a long list of nutrient dictionaries for each food item. To standardize extraction, we built:\n\nextract_nutrient(nutrient_list, target): Returns the amount for a specific nutrient\nnutrient_cols(df): Applies the extractor to create one column per nutrient of interest\n\nThis step flattens the dataset into a traditional rectangular format suitable for analysis.\n\n\nData Cleaning Functions\nclean_cols(df): Handles missing values (filling NA with zero), numeric rounding (two decimal places), and consistent column formatting.\ncategorize(df): Using regex, separates USDA description strings into: - Category (e.g., “Beans”) - Type (e.g., “black, cooked”)\nreorder_df(df) and drop_unusedcols(df): Drop unused metadata fields and reorder columns for readability.\n\n\nFinal Output\nThe result is a clean, analysis-ready dataset saved as legus_cleaned.csv."
   },
   {
-    "objectID": "TechnicalReport.html#methodology",
-    "href": "TechnicalReport.html#methodology",
-    "title": "Technical Report",
-    "section": "Methodology",
-    "text": "Methodology\n\nData acquisition\n\n\nThe script main.py queries the FoodData Central API for items where dataType == \"Foundation\" and category == \"Legumes and Legume Products\".\nThe API key is read from api.txt in the project root. Request throttling and basic retry logic are implemented in the ingestion step.\n\n\nCleaning pipeline\n\n\nParse nutrient lists and map USDA nutrient IDs / names to consistent column names (e.g., protein_g, fat_g, carbs_g, iron_mg).\nNormalize units where possible and drop or flag entries with missing critical metadata (e.g., missing serving size).\nDeduplicate records by food ID and perform simple plausibility checks (range checks for nutrients per 100 g).\n\n\nAnalysis workflow\n\n\nDescriptive statistics: mean, median, IQR for key nutrients by category and preparation method.\nVisualization: radar chart (group means), correlation heatmap (pairwise nutrient correlations using Pearson or Spearman as appropriate), and distribution plots.\nOptional modeling: linear models or clustering to identify nutrient-based groupings.\n\n\nTooling and reproducibility\n\n\nEnvironment: Python 3.11+ (project myenv), dependencies listed in pyproject.toml and managed with uv.\nKey packages: pandas, requests, streamlit, plotly, seaborn, matplotlib, etc.\nReproducible commands (run from project root):\n\nuv sync\nuv run python main.py      # regenerates legus_cleaned.csv\nuv run streamlit run src/legume_nutrient_dashboard/streamlit_app.py"
+    "objectID": "TechnicalReport.html#analysis",
+    "href": "TechnicalReport.html#analysis",
+    "title": "Beans and Legume Data Report",
+    "section": "Analysis",
+    "text": "Analysis\nOur analyses illustrate how the cleaned dataset can be explored to answer nutritional questions. The package includes three built-in visualizations.\n\navg_minerals_all(df)\nComputes mean values for selected nutrients and produces a labeled bar chart. This visualization provides a high-level overview of nutrient density across the entire legume category.\nUsage extensions: Users can modify the minerals list, group by Category or Type, or compare cooked vs. raw varieties.\n\n\ncorr_heatmap_minerals(df)\nComputes pairwise correlations for all numeric columns and displays a bottom-triangle heatmap. This helps identify:\n\nNutrients that co-occur frequently\nRedundant variables useful for dimensionality reduction\nPossible biological or processing-based nutrient relationships\n\n\n\nsidebyside_boxes(df)\nCreates side-by-side boxplots for Protein, Fat, Carbs, and Calories for all beans in the “Beans” Category. This helps identify how these nutrients compare across different bean varieties."
   },
   {
-    "objectID": "TechnicalReport.html#results-diagnostics",
-    "href": "TechnicalReport.html#results-diagnostics",
-    "title": "Technical Report",
-    "section": "Results & Diagnostics",
-    "text": "Results & Diagnostics\nThis section should present the main quantitative findings, supporting tables, and figures. Below is a suggested structure and placeholders you can replace with produced outputs.\n\nDataset summary table: number of items, categories represented, rows/columns in legus_cleaned.csv.\nKey figures (place images in figures/ and reference them here):\n\nRadar chart comparing group mean nutrients. Embed with Quarto/Markdown once the image exists:\n![](figures/radar_chart.png){width=80%}\nCorrelation heatmap (interactive Plotly version available in the Streamlit app):\n![](figures/correlation_heatmap.png){width=80%}\n\nExample diagnostics and tables:\n\nTable: top 10 legume items by protein per 100 g (CSV or Markdown table).\nTable: nutrient missingness summary (percent missing by column).\n\n\nInclude test statistics, confidence intervals, and effect sizes where appropriate. If models are used, provide model diagnostics (R^2, residual plots, cross-validation results)."
+    "objectID": "TechnicalReport.html#findings",
+    "href": "TechnicalReport.html#findings",
+    "title": "Beans and Legume Data Report",
+    "section": "Findings",
+    "text": "Findings\n\nNutrient Correlations\nTo answer the question of which nutrients correlate most with one another, we created a correlation heatmap with conditional formatting. The findings were interesting, yet consistent with our prior assumptions.\nKey insights:\n\nProtein correlations: Protein was highly correlated with every nutrient we tracked outside of sodium (anywhere between 0.83 and 0.96)\nCalorie relationships: Calories were highly correlated with fat (0.67) and carbs (0.71), which was expected\nSodium independence: Sodium showed minimal correlation with other nutrients, suggesting it’s primarily influenced by processing methods\n\n\n\nNutrient Amounts\nLooking at nutrient amounts across the legume dataset was straightforward once we created our bar plot containing average mineral contents.\nDominant nutrients:\n\nPhosphorus: Highest amount at 1,076 mg per 100g sample (by far)\nMagnesium: Second highest at 384 mg per 100g sample\nIron: 8.9 mg per 100g sample\nZinc: 3.6 mg per 100g sample"
   },
   {
-    "objectID": "TechnicalReport.html#discussion-next-steps",
-    "href": "TechnicalReport.html#discussion-next-steps",
-    "title": "Technical Report",
-    "section": "Discussion & Next Steps",
-    "text": "Discussion & Next Steps\nInterpretation: Discuss what the main findings imply for nutrition research or public-facing dashboards. Mention any surprising correlations or distributions and provide plausible biological or data-quality explanations.\nLimitations:\n\nThe dataset is limited to items categorized under FoodData Central’s “Legumes and Legume Products” and to entries labeled as Foundation; this may omit some commercially relevant foods.\nVariation in serving definitions and preparation state (raw/cooked/canned) can confound direct comparisons; recommend standardizing to per-100 g where possible.\nAPI-driven ingestion depends on the USDA’s labeling and completeness; some nutrient entries may be missing or estimated.\n\nNext steps and recommendations:\n\nExpand the dashboard to allow serving-size normalization and on-demand unit conversions.\nAdd user-driven comparison exports (CSV / image) for reproducible reporting.\nPerform clustering or dimensionality reduction (PCA/UMAP) to identify nutrient-based food groups and share results in the report.\n\nReferences and Appendix:\n\nCite FoodData Central and any literature sources used for interpretation. Attach cleaned data dictionary for legus_cleaned.csv (column descriptions, units, and source nutrient IDs).\n\nAppendix: ::: (do we need to add anything to the appendix?)"
+    "objectID": "TechnicalReport.html#conclusion",
+    "href": "TechnicalReport.html#conclusion",
+    "title": "Beans and Legume Data Report",
+    "section": "Conclusion",
+    "text": "Conclusion\nOverall, we had a great time collecting, cleaning, and visualizing the USDA legume data. This project demonstrates how to design a reproducible data science workflow from scratch by:\n\nCollecting data through an external API\nWrangling nested JSON structures into a clean dataset\nProducing meaningful analyses and visualizations\nPackaging everything so others can easily reuse it\n\nThe final package allows any user with a single API key to regenerate the full dataset and analyses exactly as we did, ensuring transparency, replicability, and extensibility.\n\nTechnical Achievements\n\nModular function design: Each step of the pipeline is contained in reusable functions\nError handling: Robust handling of missing data and API responses\nVisualization suite: Multiple analysis perspectives (correlations, distributions, averages)\nPackage structure: Proper Python packaging with clear imports and documentation\n\n\n\nFuture Extensions\n\nAdd serving-size normalization features\nImplement user-driven comparison exports\nExpand to other food categories beyond legumes\nAdd statistical modeling capabilities\n\nThis project successfully demonstrates the complete data science lifecycle while providing valuable insights into legume nutrition that could inform dietary recommendations and food science research."
   },
   {
     "objectID": "myenv/lib/python3.12/site-packages/narwhals-2.13.0.dist-info/licenses/LICENSE.html",
@@ -278,33 +306,5 @@
     "title": "Legume Nutrient Dashboard",
     "section": "",
     "text": "MIT License\nCopyright (c) 2018 - 2025 Isaac Muse isaacmuse@gmail.com\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
-  },
-  {
-    "objectID": "index.html#project-overview",
-    "href": "index.html#project-overview",
-    "title": "Legume Nutrient Dashboard",
-    "section": "📊 Project Overview",
-    "text": "📊 Project Overview\nThis dashboard provides comprehensive analysis of legume nutritional profiles, featuring interactive visualizations and data insights from the USDA Foundation Foods database."
-  },
-  {
-    "objectID": "index.html#quick-access",
-    "href": "index.html#quick-access",
-    "title": "Legume Nutrient Dashboard",
-    "section": "🔗 Quick Access",
-    "text": "🔗 Quick Access\n\n\n📚 Documentation\nComplete API reference and usage guide\n\n\n🚀 Get Started\nStep-by-step tutorial for beginners\n\n\n📋 Technical Report\nDetailed methodology and findings\n\n\n🌐 Live Demo\nInteractive Streamlit application"
-  },
-  {
-    "objectID": "index.html#key-features",
-    "href": "index.html#key-features",
-    "title": "Legume Nutrient Dashboard",
-    "section": "✨ Key Features",
-    "text": "✨ Key Features\n\nInteractive Data Visualization with radar charts and correlation analysis\nUSDA Data Integration for real-time nutritional information\nComprehensive Legume Database covering beans, lentils, peas, and more\nExport Capabilities for filtered datasets and analysis results"
-  },
-  {
-    "objectID": "index.html#technology-stack",
-    "href": "index.html#technology-stack",
-    "title": "Legume Nutrient Dashboard",
-    "section": "🛠️ Technology Stack",
-    "text": "🛠️ Technology Stack\nBuilt with modern data science tools: Python, Streamlit, Plotly, Pandas, and Quarto for documentation.\n\n\nDeveloped as part of STAT 386 coursework • Open source and available on PyPI"
   }
 ]
