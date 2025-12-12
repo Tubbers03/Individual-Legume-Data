@@ -201,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This project builds a reproducible data pipeline and interactive dashboard to explore nutrient profiles for legumes using USDA FoodData Central (Foundation foods). Primary deliverables are:</p>
 <ul>
 <li>a cleaned dataset (<code>legus_cleaned.csv</code>) that consolidates nutrient measurements and metadata for items in the “Legumes and Legume Products” category, and</li>
-<li>an interactive Streamlit dashboard (<code>src/final_project_demo/streamlit_app.py</code>) to explore nutrient distributions, compare groups, and visualize correlations.</li>
+<li>an interactive Streamlit dashboard (<code>src/legume_nutrient_dashboard/streamlit_app.py</code>) to explore nutrient distributions, compare groups, and visualize correlations.</li>
 </ul>
 <p>Key takeaways:</p>
 <ul>
@@ -275,7 +275,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> sync</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run python main.py      <span class="co"># regenerates legus_cleaned.csv</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run streamlit run src/final_project_demo/streamlit_app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run streamlit run src/legume_nutrient_dashboard/streamlit_app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="results-diagnostics" class="level2">
 <h2 class="anchored" data-anchor-id="results-diagnostics">Results &amp; Diagnostics</h2>

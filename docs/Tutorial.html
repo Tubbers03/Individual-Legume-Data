@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Learn how to use the interactive dashboard to analyze legume nutritional profiles from USDA data">
 
-<title>Getting Started – Legume Nutrient Dashboard</title>
+<title>Legume Nutrient Dashboard Tutorial – Legume Nutrient Dashboard</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -154,17 +155,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <ul class="collapse">
+  <li><a href="#what-youll-learn" id="toc-what-youll-learn" class="nav-link" data-scroll-target="#what-youll-learn">What You’ll Learn</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  </ul></li>
+  <li><a href="#setting-up-your-environment" id="toc-setting-up-your-environment" class="nav-link" data-scroll-target="#setting-up-your-environment">Setting Up Your Environment</a>
+  <ul class="collapse">
+  <li><a href="#install-dependencies" id="toc-install-dependencies" class="nav-link" data-scroll-target="#install-dependencies">1. Install Dependencies</a></li>
+  <li><a href="#set-up-your-api-key" id="toc-set-up-your-api-key" class="nav-link" data-scroll-target="#set-up-your-api-key">2. Set Up Your API Key</a></li>
+  </ul></li>
+  <li><a href="#running-the-data-pipeline" id="toc-running-the-data-pipeline" class="nav-link" data-scroll-target="#running-the-data-pipeline">Running the Data Pipeline</a>
+  <ul class="collapse">
+  <li><a href="#generate-the-cleaned-dataset" id="toc-generate-the-cleaned-dataset" class="nav-link" data-scroll-target="#generate-the-cleaned-dataset">Generate the Cleaned Dataset</a></li>
+  <li><a href="#what-the-data-contains" id="toc-what-the-data-contains" class="nav-link" data-scroll-target="#what-the-data-contains">What the Data Contains</a></li>
+  </ul></li>
+  <li><a href="#launching-the-dashboard" id="toc-launching-the-dashboard" class="nav-link" data-scroll-target="#launching-the-dashboard">Launching the Dashboard</a>
+  <ul class="collapse">
+  <li><a href="#start-the-streamlit-app" id="toc-start-the-streamlit-app" class="nav-link" data-scroll-target="#start-the-streamlit-app">Start the Streamlit App</a></li>
+  <li><a href="#dashboard-layout" id="toc-dashboard-layout" class="nav-link" data-scroll-target="#dashboard-layout">Dashboard Layout</a></li>
+  </ul></li>
+  <li><a href="#using-the-dashboard" id="toc-using-the-dashboard" class="nav-link" data-scroll-target="#using-the-dashboard">Using the Dashboard</a>
+  <ul class="collapse">
+  <li><a href="#example-workflow" id="toc-example-workflow" class="nav-link" data-scroll-target="#example-workflow">Example Workflow</a></li>
+  <li><a href="#interpreting-results" id="toc-interpreting-results" class="nav-link" data-scroll-target="#interpreting-results">Interpreting Results</a></li>
+  </ul></li>
+  <li><a href="#advanced-usage" id="toc-advanced-usage" class="nav-link" data-scroll-target="#advanced-usage">Advanced Usage</a>
+  <ul class="collapse">
+  <li><a href="#custom-analysis" id="toc-custom-analysis" class="nav-link" data-scroll-target="#custom-analysis">Custom Analysis</a></li>
+  <li><a href="#data-export" id="toc-data-export" class="nav-link" data-scroll-target="#data-export">Data Export</a></li>
+  </ul></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a>
+  <ul class="collapse">
+  <li><a href="#common-issues" id="toc-common-issues" class="nav-link" data-scroll-target="#common-issues">Common Issues</a></li>
+  <li><a href="#performance-tips" id="toc-performance-tips" class="nav-link" data-scroll-target="#performance-tips">Performance Tips</a></li>
+  </ul></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a>
+  <ul class="collapse">
+  <li><a href="#further-exploration" id="toc-further-exploration" class="nav-link" data-scroll-target="#further-exploration">Further Exploration</a></li>
+  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">Contributing</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Getting Started</h1>
+<div class="quarto-title-block"><div><h1 class="title">Legume Nutrient Dashboard Tutorial</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">A Complete Guide to Exploring Nutrient Data</p>
 </div>
 
+<div>
+  <div class="description">
+    Learn how to use the interactive dashboard to analyze legume nutritional profiles from USDA data
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -179,27 +232,251 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Here is how you use my package:</p>
-<div id="8c077eb8" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_project_demo <span class="im">import</span> add</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(add(<span class="dv">2</span>, <span class="dv">19</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>21</code></pre>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Welcome to the <strong>Legume Nutrient Dashboard</strong> tutorial! This interactive web application helps you explore nutritional data for various legumes using data from the USDA FoodData Central API.</p>
+<section id="what-youll-learn" class="level3">
+<h3 class="anchored" data-anchor-id="what-youll-learn">What You’ll Learn</h3>
+<ul>
+<li>How to set up and run the data pipeline</li>
+<li>Navigate the interactive Streamlit dashboard</li>
+<li>Analyze nutrient profiles across different legume categories</li>
+<li>Create visualizations for nutrient comparisons</li>
+<li>Export and interpret results</li>
+</ul>
+</section>
+<section id="prerequisites" class="level3">
+<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
+<p>Before starting, make sure you have:</p>
+<ul>
+<li>Python 3.11+ installed</li>
+<li>A USDA API key (get one at <a href="https://fdc.nal.usda.gov/api-key-signup.html">FoodData Central</a>)</li>
+<li>The project files downloaded</li>
+</ul>
+</section>
+</section>
+<section id="setting-up-your-environment" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-your-environment">Setting Up Your Environment</h2>
+<section id="install-dependencies" class="level3">
+<h3 class="anchored" data-anchor-id="install-dependencies">1. Install Dependencies</h3>
+<p>The project uses <code>uv</code> for dependency management. Run these commands in your terminal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to the project directory</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/Individual-Legume-Data</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Activate the virtual environment and install dependencies</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> myenv/bin/activate</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> sync</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="set-up-your-api-key" class="level3">
+<h3 class="anchored" data-anchor-id="set-up-your-api-key">2. Set Up Your API Key</h3>
+<p>Create a file called <code>api.txt</code> in the project root directory and paste your USDA API key (just the key, no quotes or extra text).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: create the API key file</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"your_api_key_here"</span> <span class="op">&gt;</span> api.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
 </div>
 </div>
-<div id="0023925b" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_project_demo <span class="im">import</span> run_analysis_pipeline, run_cleaning_pipeling</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>run_cleaning_pipeling()</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>run_analysis_pipeline()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Running cleaning pipeline...
-Running analysis pipeline...</code></pre>
+<div class="callout-body-container callout-body">
+<p><strong>Important:</strong> Never commit your <code>api.txt</code> file to version control. It’s already in <code>.gitignore</code>.</p>
 </div>
 </div>
+</section>
+</section>
+<section id="running-the-data-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="running-the-data-pipeline">Running the Data Pipeline</h2>
+<section id="generate-the-cleaned-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="generate-the-cleaned-dataset">Generate the Cleaned Dataset</h3>
+<p>The core of the project is a data pipeline that fetches legume nutrient data from the USDA API and processes it into a clean, analysis-ready format.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the main data pipeline</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run python main.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This script will:</p>
+<ol type="1">
+<li><strong>Connect to USDA FoodData Central API</strong> using your API key</li>
+<li><strong>Fetch legume data</strong> from the “Legumes and Legume Products” category</li>
+<li><strong>Extract nutrient information</strong> for each food item</li>
+<li><strong>Clean and standardize</strong> the data</li>
+<li><strong>Save results</strong> to <code>legus_cleaned.csv</code></li>
+</ol>
+<p>The process typically takes 2-5 minutes depending on API response times.</p>
+</section>
+<section id="what-the-data-contains" class="level3">
+<h3 class="anchored" data-anchor-id="what-the-data-contains">What the Data Contains</h3>
+<p>After running the pipeline, you’ll have a CSV file with columns including:</p>
+<ul>
+<li><strong>Food Item Names</strong> and descriptions</li>
+<li><strong>Category</strong> classifications (beans, lentils, peas, etc.)</li>
+<li><strong>Nutrient Measurements</strong> (protein, fat, carbs, vitamins, minerals)</li>
+<li><strong>Units</strong> and serving information</li>
+<li><strong>Data Source</strong> metadata</li>
+</ul>
+</section>
+</section>
+<section id="launching-the-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="launching-the-dashboard">Launching the Dashboard</h2>
+<section id="start-the-streamlit-app" class="level3">
+<h3 class="anchored" data-anchor-id="start-the-streamlit-app">Start the Streamlit App</h3>
+<p>Once you have the cleaned data, launch the interactive dashboard:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Launch the Streamlit dashboard</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run streamlit run src/legume_nutrient_dashboard/streamlit_app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The dashboard will open in your default web browser at <code>http://localhost:8501</code>.</p>
+</section>
+<section id="dashboard-layout" class="level3">
+<h3 class="anchored" data-anchor-id="dashboard-layout">Dashboard Layout</h3>
+<p>The dashboard has three main sections:</p>
+<section id="navigation-sidebar" class="level4">
+<h4 class="anchored" data-anchor-id="navigation-sidebar">1. Navigation Sidebar</h4>
+<ul>
+<li><strong>Legume Selector</strong>: Choose a specific legume category to filter results</li>
+<li><strong>Real-time filtering</strong> affects all visualizations</li>
+</ul>
+</section>
+<section id="radar-chart" class="level4">
+<h4 class="anchored" data-anchor-id="radar-chart">2. Radar Chart</h4>
+<p>This interactive chart shows average nutrient content across selected legumes:</p>
+<ul>
+<li><strong>Axes</strong>: Protein, Fat, Carbohydrates, Starch, and key minerals</li>
+<li><strong>Scaling</strong>: Values are normalized for comparison</li>
+<li><strong>Interactivity</strong>: Hover for exact values, zoom and pan</li>
+</ul>
+</section>
+<section id="correlation-heatmap" class="level4">
+<h4 class="anchored" data-anchor-id="correlation-heatmap">3. Correlation Heatmap</h4>
+<ul>
+<li><strong>Shows relationships</strong> between different nutrients</li>
+<li><strong>Color coding</strong>: Red for positive correlations, blue for negative</li>
+<li><strong>Interactive tooltips</strong> with correlation coefficients</li>
+</ul>
+</section>
+<section id="data-table" class="level4">
+<h4 class="anchored" data-anchor-id="data-table">4. Data Table</h4>
+<ul>
+<li><strong>Complete dataset</strong> view with search and filtering</li>
+<li><strong>Export options</strong> for further analysis</li>
+<li><strong>Pagination</strong> for large datasets</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="using-the-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-dashboard">Using the Dashboard</h2>
+<section id="example-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="example-workflow">Example Workflow</h3>
+<ol type="1">
+<li><strong>Select a legume category</strong> from the sidebar (e.g., “Beans, kidney”)</li>
+<li><strong>Examine the radar chart</strong> to see how this legume compares nutritionally</li>
+<li><strong>Check the correlation heatmap</strong> to understand nutrient relationships</li>
+<li><strong>Browse the data table</strong> for detailed measurements</li>
+</ol>
+</section>
+<section id="interpreting-results" class="level3">
+<h3 class="anchored" data-anchor-id="interpreting-results">Interpreting Results</h3>
+<section id="nutrient-profiles" class="level4">
+<h4 class="anchored" data-anchor-id="nutrient-profiles">Nutrient Profiles</h4>
+<p>Different legumes have distinct nutritional profiles:</p>
+<ul>
+<li><strong>Lentils and chickpeas</strong>: High in protein and fiber</li>
+<li><strong>Black beans</strong>: Rich in antioxidants and minerals</li>
+<li><strong>Peanuts</strong>: Higher fat content but also more calories</li>
+</ul>
+</section>
+<section id="correlation-insights" class="level4">
+<h4 class="anchored" data-anchor-id="correlation-insights">Correlation Insights</h4>
+<p>The heatmap might reveal:</p>
+<ul>
+<li><strong>Protein vs.&nbsp;Minerals</strong>: Often positively correlated</li>
+<li><strong>Fat vs.&nbsp;Carbohydrates</strong>: Sometimes trade-offs</li>
+<li><strong>Vitamin patterns</strong>: How different nutrients cluster together</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="advanced-usage" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-usage">Advanced Usage</h2>
+<section id="custom-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="custom-analysis">Custom Analysis</h3>
+<p>You can extend the dashboard by modifying the source code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Add a new nutrient to the radar chart</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>radar_minerals <span class="op">=</span> [</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Protein (g)"</span>, <span class="st">"Fat (g)"</span>, <span class="st">"Carbs (g)"</span>, <span class="st">"Starch (g)"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Iron (mg)"</span>, <span class="st">"Magnesium (mg)"</span>, <span class="st">"Phosphorus (mg)"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Potassium (mg)"</span>, <span class="st">"Sodium (mg)"</span>, <span class="st">"Zinc (mg)"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Copper (mg)"</span>, <span class="st">"Manganese (mg)"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Vitamin C (mg)"</span>  <span class="co"># Add new nutrients here</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="data-export" class="level3">
+<h3 class="anchored" data-anchor-id="data-export">Data Export</h3>
+<p>The dashboard includes options to:</p>
+<ul>
+<li><strong>Download filtered datasets</strong> as CSV</li>
+<li><strong>Export visualizations</strong> as images</li>
+<li><strong>Copy data</strong> for use in other tools</li>
+</ul>
+</section>
+</section>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
+<section id="common-issues" class="level3">
+<h3 class="anchored" data-anchor-id="common-issues">Common Issues</h3>
+<section id="api-key-problems" class="level4">
+<h4 class="anchored" data-anchor-id="api-key-problems">API Key Problems</h4>
+<pre><code>Error: Invalid API key</code></pre>
+<p><strong>Solution</strong>: Verify your <code>api.txt</code> file contains only the API key with no extra characters.</p>
+</section>
+<section id="missing-data" class="level4">
+<h4 class="anchored" data-anchor-id="missing-data">Missing Data</h4>
+<pre><code>FileNotFoundError: legus_cleaned.csv</code></pre>
+<p><strong>Solution</strong>: Run <code>python main.py</code> first to generate the dataset.</p>
+</section>
+<section id="port-already-in-use" class="level4">
+<h4 class="anchored" data-anchor-id="port-already-in-use">Port Already in Use</h4>
+<pre><code>Error: Port 8501 is already in use</code></pre>
+<p><strong>Solution</strong>: Use a different port: <code>streamlit run app.py --server.port 8502</code></p>
+</section>
+</section>
+<section id="performance-tips" class="level3">
+<h3 class="anchored" data-anchor-id="performance-tips">Performance Tips</h3>
+<ul>
+<li><strong>Large datasets</strong>: The app handles thousands of food items efficiently</li>
+<li><strong>Browser compatibility</strong>: Works best in Chrome/Firefox</li>
+<li><strong>Mobile viewing</strong>: Dashboard is responsive but desktop offers best experience</li>
+</ul>
+</section>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<section id="further-exploration" class="level3">
+<h3 class="anchored" data-anchor-id="further-exploration">Further Exploration</h3>
+<ul>
+<li><strong>Compare categories</strong>: Try different legume types to see nutritional differences</li>
+<li><strong>Seasonal analysis</strong>: Look for patterns in raw vs.&nbsp;processed foods</li>
+<li><strong>Custom visualizations</strong>: Modify the code to add new chart types</li>
+</ul>
+</section>
+<section id="contributing" class="level3">
+<h3 class="anchored" data-anchor-id="contributing">Contributing</h3>
+<p>Found a bug or want to add a feature? Check the main project documentation for contribution guidelines.</p>
+</section>
+<section id="resources" class="level3">
+<h3 class="anchored" data-anchor-id="resources">Resources</h3>
+<ul>
+<li><a href="https://fdc.nal.usda.gov/">USDA FoodData Central Documentation</a></li>
+<li><a href="https://docs.streamlit.io/">Streamlit Documentation</a></li>
+<li><a href="https://plotly.com/python/">Plotly Chart Types</a></li>
+</ul>
+<hr>
+<p><strong>Happy exploring!</strong> 🌱 The legume nutrient dashboard is designed to make nutritional data accessible and actionable for researchers, students, and health enthusiasts.</p>
 
 
+<!-- -->
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -272,6 +549,57 @@ Running analysis pipeline...</code></pre>
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -601,7 +929,243 @@ Running analysis pipeline...</code></pre>
       }
     }
   });
-  </script>
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Legume Nutrient Dashboard Tutorial"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "A Complete Guide to Exploring Nutrient Data"</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "Learn how to use the interactive dashboard to analyze legume nutritional profiles from USDA data"</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 3</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: false</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>Welcome to the **Legume Nutrient Dashboard** tutorial! This interactive web application helps you explore nutritional data for various legumes using data from the USDA FoodData Central API.</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="fu">### What You'll Learn</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How to set up and run the data pipeline</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Navigate the interactive Streamlit dashboard</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Analyze nutrient profiles across different legume categories</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Create visualizations for nutrient comparisons</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Export and interpret results</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Prerequisites</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>Before starting, make sure you have:</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Python 3.11+ installed</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A USDA API key (get one at <span class="co">[</span><span class="ot">FoodData Central</span><span class="co">](https://fdc.nal.usda.gov/api-key-signup.html)</span>)</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The project files downloaded</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Setting Up Your Environment</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Install Dependencies</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>The project uses <span class="in">`uv`</span> for dependency management. Run these commands in your terminal:</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to the project directory</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/Individual-Legume-Data</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Activate the virtual environment and install dependencies</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> myenv/bin/activate</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> sync</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Set Up Your API Key</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>Create a file called <span class="in">`api.txt`</span> in the project root directory and paste your USDA API key (just the key, no quotes or extra text).</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: create the API key file</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"your_api_key_here"</span> <span class="op">&gt;</span> api.txt</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>**Important:** Never commit your <span class="in">`api.txt`</span> file to version control. It's already in <span class="in">`.gitignore`</span>.</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a><span class="fu">## Running the Data Pipeline</span></span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a><span class="fu">### Generate the Cleaned Dataset</span></span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>The core of the project is a data pipeline that fetches legume nutrient data from the USDA API and processes it into a clean, analysis-ready format.</span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the main data pipeline</span></span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run python main.py</span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a>This script will:</span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Connect to USDA FoodData Central API** using your API key</span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Fetch legume data** from the "Legumes and Legume Products" category</span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Extract nutrient information** for each food item</span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Clean and standardize** the data</span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Save results** to <span class="in">`legus_cleaned.csv`</span></span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>The process typically takes 2-5 minutes depending on API response times.</span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a><span class="fu">### What the Data Contains</span></span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>After running the pipeline, you'll have a CSV file with columns including:</span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Food Item Names** and descriptions</span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Category** classifications (beans, lentils, peas, etc.)</span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Nutrient Measurements** (protein, fat, carbs, vitamins, minerals)</span>
+<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Units** and serving information</span>
+<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Data Source** metadata</span>
+<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a><span class="fu">## Launching the Dashboard</span></span>
+<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a><span class="fu">### Start the Streamlit App</span></span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>Once you have the cleaned data, launch the interactive dashboard:</span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a><span class="co"># Launch the Streamlit dashboard</span></span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run streamlit run src/legume_nutrient_dashboard/streamlit_app.py</span>
+<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>The dashboard will open in your default web browser at <span class="in">`http://localhost:8501`</span>.</span>
+<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dashboard Layout</span></span>
+<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>The dashboard has three main sections:</span>
+<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 1. Navigation Sidebar</span></span>
+<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Legume Selector**: Choose a specific legume category to filter results</span>
+<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Real-time filtering** affects all visualizations</span>
+<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 2. Radar Chart</span></span>
+<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a>This interactive chart shows average nutrient content across selected legumes:</span>
+<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Axes**: Protein, Fat, Carbohydrates, Starch, and key minerals</span>
+<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Scaling**: Values are normalized for comparison</span>
+<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Interactivity**: Hover for exact values, zoom and pan</span>
+<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 3. Correlation Heatmap</span></span>
+<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Shows relationships** between different nutrients</span>
+<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Color coding**: Red for positive correlations, blue for negative</span>
+<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Interactive tooltips** with correlation coefficients</span>
+<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 4. Data Table</span></span>
+<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Complete dataset** view with search and filtering</span>
+<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Export options** for further analysis</span>
+<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Pagination** for large datasets</span>
+<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using the Dashboard</span></span>
+<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a><span class="fu">### Example Workflow</span></span>
+<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Select a legume category** from the sidebar (e.g., "Beans, kidney")</span>
+<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Examine the radar chart** to see how this legume compares nutritionally</span>
+<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Check the correlation heatmap** to understand nutrient relationships</span>
+<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Browse the data table** for detailed measurements</span>
+<span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interpreting Results</span></span>
+<span id="cb9-145"><a href="#cb9-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-146"><a href="#cb9-146" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Nutrient Profiles</span></span>
+<span id="cb9-147"><a href="#cb9-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a>Different legumes have distinct nutritional profiles:</span>
+<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Lentils and chickpeas**: High in protein and fiber</span>
+<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Black beans**: Rich in antioxidants and minerals</span>
+<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Peanuts**: Higher fat content but also more calories</span>
+<span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Correlation Insights</span></span>
+<span id="cb9-155"><a href="#cb9-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-156"><a href="#cb9-156" aria-hidden="true" tabindex="-1"></a>The heatmap might reveal:</span>
+<span id="cb9-157"><a href="#cb9-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-158"><a href="#cb9-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Protein vs. Minerals**: Often positively correlated</span>
+<span id="cb9-159"><a href="#cb9-159" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Fat vs. Carbohydrates**: Sometimes trade-offs</span>
+<span id="cb9-160"><a href="#cb9-160" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Vitamin patterns**: How different nutrients cluster together</span>
+<span id="cb9-161"><a href="#cb9-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-162"><a href="#cb9-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## Advanced Usage</span></span>
+<span id="cb9-163"><a href="#cb9-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-164"><a href="#cb9-164" aria-hidden="true" tabindex="-1"></a><span class="fu">### Custom Analysis</span></span>
+<span id="cb9-165"><a href="#cb9-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-166"><a href="#cb9-166" aria-hidden="true" tabindex="-1"></a>You can extend the dashboard by modifying the source code:</span>
+<span id="cb9-167"><a href="#cb9-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-168"><a href="#cb9-168" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Add a new nutrient to the radar chart</span></span>
+<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a>radar_minerals <span class="op">=</span> [</span>
+<span id="cb9-171"><a href="#cb9-171" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Protein (g)"</span>, <span class="st">"Fat (g)"</span>, <span class="st">"Carbs (g)"</span>, <span class="st">"Starch (g)"</span>,</span>
+<span id="cb9-172"><a href="#cb9-172" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Iron (mg)"</span>, <span class="st">"Magnesium (mg)"</span>, <span class="st">"Phosphorus (mg)"</span>,</span>
+<span id="cb9-173"><a href="#cb9-173" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Potassium (mg)"</span>, <span class="st">"Sodium (mg)"</span>, <span class="st">"Zinc (mg)"</span>,</span>
+<span id="cb9-174"><a href="#cb9-174" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Copper (mg)"</span>, <span class="st">"Manganese (mg)"</span>,</span>
+<span id="cb9-175"><a href="#cb9-175" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Vitamin C (mg)"</span>  <span class="co"># Add new nutrients here</span></span>
+<span id="cb9-176"><a href="#cb9-176" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb9-177"><a href="#cb9-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-179"><a href="#cb9-179" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Export</span></span>
+<span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a>The dashboard includes options to:</span>
+<span id="cb9-182"><a href="#cb9-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-183"><a href="#cb9-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Download filtered datasets** as CSV</span>
+<span id="cb9-184"><a href="#cb9-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Export visualizations** as images</span>
+<span id="cb9-185"><a href="#cb9-185" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Copy data** for use in other tools</span>
+<span id="cb9-186"><a href="#cb9-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a><span class="fu">## Troubleshooting</span></span>
+<span id="cb9-188"><a href="#cb9-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-189"><a href="#cb9-189" aria-hidden="true" tabindex="-1"></a><span class="fu">### Common Issues</span></span>
+<span id="cb9-190"><a href="#cb9-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-191"><a href="#cb9-191" aria-hidden="true" tabindex="-1"></a><span class="fu">#### API Key Problems</span></span>
+<span id="cb9-192"><a href="#cb9-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-193"><a href="#cb9-193" aria-hidden="true" tabindex="-1"></a><span class="in">Error: Invalid API key</span></span>
+<span id="cb9-194"><a href="#cb9-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-195"><a href="#cb9-195" aria-hidden="true" tabindex="-1"></a>**Solution**: Verify your <span class="in">`api.txt`</span> file contains only the API key with no extra characters.</span>
+<span id="cb9-196"><a href="#cb9-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-197"><a href="#cb9-197" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Missing Data</span></span>
+<span id="cb9-198"><a href="#cb9-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-199"><a href="#cb9-199" aria-hidden="true" tabindex="-1"></a><span class="in">FileNotFoundError: legus_cleaned.csv</span></span>
+<span id="cb9-200"><a href="#cb9-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-201"><a href="#cb9-201" aria-hidden="true" tabindex="-1"></a>**Solution**: Run <span class="in">`python main.py`</span> first to generate the dataset.</span>
+<span id="cb9-202"><a href="#cb9-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-203"><a href="#cb9-203" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Port Already in Use</span></span>
+<span id="cb9-204"><a href="#cb9-204" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-205"><a href="#cb9-205" aria-hidden="true" tabindex="-1"></a><span class="in">Error: Port 8501 is already in use</span></span>
+<span id="cb9-206"><a href="#cb9-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-207"><a href="#cb9-207" aria-hidden="true" tabindex="-1"></a>**Solution**: Use a different port: <span class="in">`streamlit run app.py --server.port 8502`</span></span>
+<span id="cb9-208"><a href="#cb9-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-209"><a href="#cb9-209" aria-hidden="true" tabindex="-1"></a><span class="fu">### Performance Tips</span></span>
+<span id="cb9-210"><a href="#cb9-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-211"><a href="#cb9-211" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Large datasets**: The app handles thousands of food items efficiently</span>
+<span id="cb9-212"><a href="#cb9-212" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Browser compatibility**: Works best in Chrome/Firefox</span>
+<span id="cb9-213"><a href="#cb9-213" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Mobile viewing**: Dashboard is responsive but desktop offers best experience</span>
+<span id="cb9-214"><a href="#cb9-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-215"><a href="#cb9-215" aria-hidden="true" tabindex="-1"></a><span class="fu">## Next Steps</span></span>
+<span id="cb9-216"><a href="#cb9-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-217"><a href="#cb9-217" aria-hidden="true" tabindex="-1"></a><span class="fu">### Further Exploration</span></span>
+<span id="cb9-218"><a href="#cb9-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-219"><a href="#cb9-219" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Compare categories**: Try different legume types to see nutritional differences</span>
+<span id="cb9-220"><a href="#cb9-220" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Seasonal analysis**: Look for patterns in raw vs. processed foods</span>
+<span id="cb9-221"><a href="#cb9-221" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Custom visualizations**: Modify the code to add new chart types</span>
+<span id="cb9-222"><a href="#cb9-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-223"><a href="#cb9-223" aria-hidden="true" tabindex="-1"></a><span class="fu">### Contributing</span></span>
+<span id="cb9-224"><a href="#cb9-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-225"><a href="#cb9-225" aria-hidden="true" tabindex="-1"></a>Found a bug or want to add a feature? Check the main project documentation for contribution guidelines.</span>
+<span id="cb9-226"><a href="#cb9-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-227"><a href="#cb9-227" aria-hidden="true" tabindex="-1"></a><span class="fu">### Resources</span></span>
+<span id="cb9-228"><a href="#cb9-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-229"><a href="#cb9-229" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">USDA FoodData Central Documentation</span><span class="co">](https://fdc.nal.usda.gov/)</span></span>
+<span id="cb9-230"><a href="#cb9-230" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Streamlit Documentation</span><span class="co">](https://docs.streamlit.io/)</span></span>
+<span id="cb9-231"><a href="#cb9-231" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Plotly Chart Types</span><span class="co">](https://plotly.com/python/)</span></span>
+<span id="cb9-232"><a href="#cb9-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-233"><a href="#cb9-233" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb9-234"><a href="#cb9-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-235"><a href="#cb9-235" aria-hidden="true" tabindex="-1"></a>**Happy exploring!** 🌱 The legume nutrient dashboard is designed to make nutritional data accessible and actionable for researchers, students, and health enthusiasts.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

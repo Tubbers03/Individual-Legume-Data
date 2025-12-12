@@ -23,5 +23,11 @@ format:
     css: styles.css
     toc: true
 
+# Exclude unnecessary files from the build
+exclude:
+  - myenv/
+  - "*.ipynb"
+  - ".quarto/"
+
 
 

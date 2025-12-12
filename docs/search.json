@@ -51,9 +51,65 @@
   {
     "objectID": "Tutorial.html",
     "href": "Tutorial.html",
-    "title": "Getting Started",
+    "title": "Legume Nutrient Dashboard Tutorial",
     "section": "",
-    "text": "Here is how you use my package:\n\nfrom final_project_demo import add\n\nprint(add(2, 19))\n\n21\n\n\n\nfrom final_project_demo import run_analysis_pipeline, run_cleaning_pipeling\n\nrun_cleaning_pipeling()\nrun_analysis_pipeline()\n\nRunning cleaning pipeline...\nRunning analysis pipeline..."
+    "text": "Welcome to the Legume Nutrient Dashboard tutorial! This interactive web application helps you explore nutritional data for various legumes using data from the USDA FoodData Central API.\n\n\n\nHow to set up and run the data pipeline\nNavigate the interactive Streamlit dashboard\nAnalyze nutrient profiles across different legume categories\nCreate visualizations for nutrient comparisons\nExport and interpret results\n\n\n\n\nBefore starting, make sure you have:\n\nPython 3.11+ installed\nA USDA API key (get one at FoodData Central)\nThe project files downloaded"
+  },
+  {
+    "objectID": "Tutorial.html#overview",
+    "href": "Tutorial.html#overview",
+    "title": "Legume Nutrient Dashboard Tutorial",
+    "section": "",
+    "text": "Welcome to the Legume Nutrient Dashboard tutorial! This interactive web application helps you explore nutritional data for various legumes using data from the USDA FoodData Central API.\n\n\n\nHow to set up and run the data pipeline\nNavigate the interactive Streamlit dashboard\nAnalyze nutrient profiles across different legume categories\nCreate visualizations for nutrient comparisons\nExport and interpret results\n\n\n\n\nBefore starting, make sure you have:\n\nPython 3.11+ installed\nA USDA API key (get one at FoodData Central)\nThe project files downloaded"
+  },
+  {
+    "objectID": "Tutorial.html#setting-up-your-environment",
+    "href": "Tutorial.html#setting-up-your-environment",
+    "title": "Legume Nutrient Dashboard Tutorial",
+    "section": "Setting Up Your Environment",
+    "text": "Setting Up Your Environment\n\n1. Install Dependencies\nThe project uses uv for dependency management. Run these commands in your terminal:\n# Navigate to the project directory\ncd path/to/Individual-Legume-Data\n\n# Activate the virtual environment and install dependencies\nsource myenv/bin/activate\nuv sync\n\n\n2. Set Up Your API Key\nCreate a file called api.txt in the project root directory and paste your USDA API key (just the key, no quotes or extra text).\n# Example: create the API key file\necho \"your_api_key_here\" &gt; api.txt\n\n\n\n\n\n\nWarning\n\n\n\nImportant: Never commit your api.txt file to version control. It’s already in .gitignore."
+  },
+  {
+    "objectID": "Tutorial.html#running-the-data-pipeline",
+    "href": "Tutorial.html#running-the-data-pipeline",
+    "title": "Legume Nutrient Dashboard Tutorial",
+    "section": "Running the Data Pipeline",
+    "text": "Running the Data Pipeline\n\nGenerate the Cleaned Dataset\nThe core of the project is a data pipeline that fetches legume nutrient data from the USDA API and processes it into a clean, analysis-ready format.\n# Run the main data pipeline\nuv run python main.py\nThis script will:\n\nConnect to USDA FoodData Central API using your API key\nFetch legume data from the “Legumes and Legume Products” category\nExtract nutrient information for each food item\nClean and standardize the data\nSave results to legus_cleaned.csv\n\nThe process typically takes 2-5 minutes depending on API response times.\n\n\nWhat the Data Contains\nAfter running the pipeline, you’ll have a CSV file with columns including:\n\nFood Item Names and descriptions\nCategory classifications (beans, lentils, peas, etc.)\nNutrient Measurements (protein, fat, carbs, vitamins, minerals)\nUnits and serving information\nData Source metadata"
+  },
+  {
+    "objectID": "Tutorial.html#launching-the-dashboard",
+    "href": "Tutorial.html#launching-the-dashboard",
+    "title": "Legume Nutrient Dashboard Tutorial",
+    "section": "Launching the Dashboard",
+    "text": "Launching the Dashboard\n\nStart the Streamlit App\nOnce you have the cleaned data, launch the interactive dashboard:\n# Launch the Streamlit dashboard\nuv run streamlit run src/legume_nutrient_dashboard/streamlit_app.py\nThe dashboard will open in your default web browser at http://localhost:8501.\n\n\nDashboard Layout\nThe dashboard has three main sections:\n\n1. Navigation Sidebar\n\nLegume Selector: Choose a specific legume category to filter results\nReal-time filtering affects all visualizations\n\n\n\n2. Radar Chart\nThis interactive chart shows average nutrient content across selected legumes:\n\nAxes: Protein, Fat, Carbohydrates, Starch, and key minerals\nScaling: Values are normalized for comparison\nInteractivity: Hover for exact values, zoom and pan\n\n\n\n3. Correlation Heatmap\n\nShows relationships between different nutrients\nColor coding: Red for positive correlations, blue for negative\nInteractive tooltips with correlation coefficients\n\n\n\n4. Data Table\n\nComplete dataset view with search and filtering\nExport options for further analysis\nPagination for large datasets"
+  },
+  {
+    "objectID": "Tutorial.html#using-the-dashboard",
+    "href": "Tutorial.html#using-the-dashboard",
+    "title": "Legume Nutrient Dashboard Tutorial",
+    "section": "Using the Dashboard",
+    "text": "Using the Dashboard\n\nExample Workflow\n\nSelect a legume category from the sidebar (e.g., “Beans, kidney”)\nExamine the radar chart to see how this legume compares nutritionally\nCheck the correlation heatmap to understand nutrient relationships\nBrowse the data table for detailed measurements\n\n\n\nInterpreting Results\n\nNutrient Profiles\nDifferent legumes have distinct nutritional profiles:\n\nLentils and chickpeas: High in protein and fiber\nBlack beans: Rich in antioxidants and minerals\nPeanuts: Higher fat content but also more calories\n\n\n\nCorrelation Insights\nThe heatmap might reveal:\n\nProtein vs. Minerals: Often positively correlated\nFat vs. Carbohydrates: Sometimes trade-offs\nVitamin patterns: How different nutrients cluster together"
+  },
+  {
+    "objectID": "Tutorial.html#advanced-usage",
+    "href": "Tutorial.html#advanced-usage",
+    "title": "Legume Nutrient Dashboard Tutorial",
+    "section": "Advanced Usage",
+    "text": "Advanced Usage\n\nCustom Analysis\nYou can extend the dashboard by modifying the source code:\n# Example: Add a new nutrient to the radar chart\nradar_minerals = [\n    \"Protein (g)\", \"Fat (g)\", \"Carbs (g)\", \"Starch (g)\",\n    \"Iron (mg)\", \"Magnesium (mg)\", \"Phosphorus (mg)\",\n    \"Potassium (mg)\", \"Sodium (mg)\", \"Zinc (mg)\",\n    \"Copper (mg)\", \"Manganese (mg)\",\n    \"Vitamin C (mg)\"  # Add new nutrients here\n]\n\n\nData Export\nThe dashboard includes options to:\n\nDownload filtered datasets as CSV\nExport visualizations as images\nCopy data for use in other tools"
+  },
+  {
+    "objectID": "Tutorial.html#troubleshooting",
+    "href": "Tutorial.html#troubleshooting",
+    "title": "Legume Nutrient Dashboard Tutorial",
+    "section": "Troubleshooting",
+    "text": "Troubleshooting\n\nCommon Issues\n\nAPI Key Problems\nError: Invalid API key\nSolution: Verify your api.txt file contains only the API key with no extra characters.\n\n\nMissing Data\nFileNotFoundError: legus_cleaned.csv\nSolution: Run python main.py first to generate the dataset.\n\n\nPort Already in Use\nError: Port 8501 is already in use\nSolution: Use a different port: streamlit run app.py --server.port 8502\n\n\n\nPerformance Tips\n\nLarge datasets: The app handles thousands of food items efficiently\nBrowser compatibility: Works best in Chrome/Firefox\nMobile viewing: Dashboard is responsive but desktop offers best experience"
+  },
+  {
+    "objectID": "Tutorial.html#next-steps",
+    "href": "Tutorial.html#next-steps",
+    "title": "Legume Nutrient Dashboard Tutorial",
+    "section": "Next Steps",
+    "text": "Next Steps\n\nFurther Exploration\n\nCompare categories: Try different legume types to see nutritional differences\nSeasonal analysis: Look for patterns in raw vs. processed foods\nCustom visualizations: Modify the code to add new chart types\n\n\n\nContributing\nFound a bug or want to add a feature? Check the main project documentation for contribution guidelines.\n\n\nResources\n\nUSDA FoodData Central Documentation\nStreamlit Documentation\nPlotly Chart Types\n\n\nHappy exploring! 🌱 The legume nutrient dashboard is designed to make nutritional data accessible and actionable for researchers, students, and health enthusiasts."
   },
   {
     "objectID": "Documentation.html",
@@ -158,14 +214,14 @@
     "href": "TechnicalReport.html",
     "title": "Technical Report",
     "section": "",
-    "text": "This project builds a reproducible data pipeline and interactive dashboard to explore nutrient profiles for legumes using USDA FoodData Central (Foundation foods). Primary deliverables are:\n\na cleaned dataset (legus_cleaned.csv) that consolidates nutrient measurements and metadata for items in the “Legumes and Legume Products” category, and\nan interactive Streamlit dashboard (src/final_project_demo/streamlit_app.py) to explore nutrient distributions, compare groups, and visualize correlations.\n\nKey takeaways:\n\nNutrient variability: Protein and carbohydrate content vary substantially across legume subtypes; several minerals (e.g., iron, magnesium) show moderate positive correlations with protein.\nGroup-level patterns: Cooked vs. raw / canned vs. dried products show systematic differences in sodium and water-soluble vitamins.\nRecommendations: Use the cleaned dataset for downstream nutritional modeling and incorporate serving-size normalization when reporting public-facing summaries.\n\n:::(Put any numerical findings right here)"
+    "text": "This project builds a reproducible data pipeline and interactive dashboard to explore nutrient profiles for legumes using USDA FoodData Central (Foundation foods). Primary deliverables are:\n\na cleaned dataset (legus_cleaned.csv) that consolidates nutrient measurements and metadata for items in the “Legumes and Legume Products” category, and\nan interactive Streamlit dashboard (src/legume_nutrient_dashboard/streamlit_app.py) to explore nutrient distributions, compare groups, and visualize correlations.\n\nKey takeaways:\n\nNutrient variability: Protein and carbohydrate content vary substantially across legume subtypes; several minerals (e.g., iron, magnesium) show moderate positive correlations with protein.\nGroup-level patterns: Cooked vs. raw / canned vs. dried products show systematic differences in sodium and water-soluble vitamins.\nRecommendations: Use the cleaned dataset for downstream nutritional modeling and incorporate serving-size normalization when reporting public-facing summaries.\n\n:::(Put any numerical findings right here)"
   },
   {
     "objectID": "TechnicalReport.html#executive-summary",
     "href": "TechnicalReport.html#executive-summary",
     "title": "Technical Report",
     "section": "",
-    "text": "This project builds a reproducible data pipeline and interactive dashboard to explore nutrient profiles for legumes using USDA FoodData Central (Foundation foods). Primary deliverables are:\n\na cleaned dataset (legus_cleaned.csv) that consolidates nutrient measurements and metadata for items in the “Legumes and Legume Products” category, and\nan interactive Streamlit dashboard (src/final_project_demo/streamlit_app.py) to explore nutrient distributions, compare groups, and visualize correlations.\n\nKey takeaways:\n\nNutrient variability: Protein and carbohydrate content vary substantially across legume subtypes; several minerals (e.g., iron, magnesium) show moderate positive correlations with protein.\nGroup-level patterns: Cooked vs. raw / canned vs. dried products show systematic differences in sodium and water-soluble vitamins.\nRecommendations: Use the cleaned dataset for downstream nutritional modeling and incorporate serving-size normalization when reporting public-facing summaries.\n\n:::(Put any numerical findings right here)"
+    "text": "This project builds a reproducible data pipeline and interactive dashboard to explore nutrient profiles for legumes using USDA FoodData Central (Foundation foods). Primary deliverables are:\n\na cleaned dataset (legus_cleaned.csv) that consolidates nutrient measurements and metadata for items in the “Legumes and Legume Products” category, and\nan interactive Streamlit dashboard (src/legume_nutrient_dashboard/streamlit_app.py) to explore nutrient distributions, compare groups, and visualize correlations.\n\nKey takeaways:\n\nNutrient variability: Protein and carbohydrate content vary substantially across legume subtypes; several minerals (e.g., iron, magnesium) show moderate positive correlations with protein.\nGroup-level patterns: Cooked vs. raw / canned vs. dried products show systematic differences in sodium and water-soluble vitamins.\nRecommendations: Use the cleaned dataset for downstream nutritional modeling and incorporate serving-size normalization when reporting public-facing summaries.\n\n:::(Put any numerical findings right here)"
   },
   {
     "objectID": "TechnicalReport.html#project-context",
@@ -186,7 +242,7 @@
     "href": "TechnicalReport.html#methodology",
     "title": "Technical Report",
     "section": "Methodology",
-    "text": "Methodology\n\nData acquisition\n\n\nThe script main.py queries the FoodData Central API for items where dataType == \"Foundation\" and category == \"Legumes and Legume Products\".\nThe API key is read from api.txt in the project root. Request throttling and basic retry logic are implemented in the ingestion step.\n\n\nCleaning pipeline\n\n\nParse nutrient lists and map USDA nutrient IDs / names to consistent column names (e.g., protein_g, fat_g, carbs_g, iron_mg).\nNormalize units where possible and drop or flag entries with missing critical metadata (e.g., missing serving size).\nDeduplicate records by food ID and perform simple plausibility checks (range checks for nutrients per 100 g).\n\n\nAnalysis workflow\n\n\nDescriptive statistics: mean, median, IQR for key nutrients by category and preparation method.\nVisualization: radar chart (group means), correlation heatmap (pairwise nutrient correlations using Pearson or Spearman as appropriate), and distribution plots.\nOptional modeling: linear models or clustering to identify nutrient-based groupings.\n\n\nTooling and reproducibility\n\n\nEnvironment: Python 3.11+ (project myenv), dependencies listed in pyproject.toml and managed with uv.\nKey packages: pandas, requests, streamlit, plotly, seaborn, matplotlib, etc.\nReproducible commands (run from project root):\n\nuv sync\nuv run python main.py      # regenerates legus_cleaned.csv\nuv run streamlit run src/final_project_demo/streamlit_app.py"
+    "text": "Methodology\n\nData acquisition\n\n\nThe script main.py queries the FoodData Central API for items where dataType == \"Foundation\" and category == \"Legumes and Legume Products\".\nThe API key is read from api.txt in the project root. Request throttling and basic retry logic are implemented in the ingestion step.\n\n\nCleaning pipeline\n\n\nParse nutrient lists and map USDA nutrient IDs / names to consistent column names (e.g., protein_g, fat_g, carbs_g, iron_mg).\nNormalize units where possible and drop or flag entries with missing critical metadata (e.g., missing serving size).\nDeduplicate records by food ID and perform simple plausibility checks (range checks for nutrients per 100 g).\n\n\nAnalysis workflow\n\n\nDescriptive statistics: mean, median, IQR for key nutrients by category and preparation method.\nVisualization: radar chart (group means), correlation heatmap (pairwise nutrient correlations using Pearson or Spearman as appropriate), and distribution plots.\nOptional modeling: linear models or clustering to identify nutrient-based groupings.\n\n\nTooling and reproducibility\n\n\nEnvironment: Python 3.11+ (project myenv), dependencies listed in pyproject.toml and managed with uv.\nKey packages: pandas, requests, streamlit, plotly, seaborn, matplotlib, etc.\nReproducible commands (run from project root):\n\nuv sync\nuv run python main.py      # regenerates legus_cleaned.csv\nuv run streamlit run src/legume_nutrient_dashboard/streamlit_app.py"
   },
   {
     "objectID": "TechnicalReport.html#results-diagnostics",
