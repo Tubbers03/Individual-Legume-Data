@@ -10,14 +10,14 @@ format:
 ::: {.hero-section}
 # 🌱 Legume Nutrient Dashboard
 
-**An interactive web application for analyzing legume nutritional data from the USDA FoodData Central API**
+**An interactive web application for analyzing legume nutritional data from the USDA FoodData Central API** 
 
 Built for STAT 386 • Data Science & Analysis
 :::
 
 ## 📊 Project Overview
 
-This dashboard provides comprehensive analysis of legume nutritional profiles, featuring interactive visualizations and data insights from the USDA Foundation Foods database.
+This dashboard provides comprehensive analysis of legume nutritional profiles, featuring interactive visualizations and data insights from the [USDA Foundation Foods database](https://fdc.nal.usda.gov/food-search?type=Foundation&SFFoodCategory=Legumes%20and%20Legume%20Products).
 
 ## 🔗 Quick Access
 
@@ -29,7 +29,7 @@ Complete API reference and usage guide
 :::
 
 ::: {.g-col-6 .g-col-md-3}
-### 🚀 [Get Started](Tutorial.qmd)
+### 🚀 [Tutorial](Tutorial.qmd)
 Step-by-step tutorial for beginners
 :::
 
