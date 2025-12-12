@@ -44,9 +44,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "My Python Package!",
+    "title": "Legume Nutrient Dashboard",
     "section": "",
-    "text": "Here is a website all about my package for STAT 386!\nDocumentation here.\nGet started here.\nReview the technical report."
+    "text": "An interactive web application for analyzing legume nutritional data from the USDA FoodData Central API\nBuilt for STAT 386 • Data Science & Analysis"
   },
   {
     "objectID": "Tutorial.html",
@@ -278,5 +278,33 @@
     "title": "Legume Nutrient Dashboard",
     "section": "",
     "text": "MIT License\nCopyright (c) 2018 - 2025 Isaac Muse isaacmuse@gmail.com\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+  },
+  {
+    "objectID": "index.html#project-overview",
+    "href": "index.html#project-overview",
+    "title": "Legume Nutrient Dashboard",
+    "section": "📊 Project Overview",
+    "text": "📊 Project Overview\nThis dashboard provides comprehensive analysis of legume nutritional profiles, featuring interactive visualizations and data insights from the USDA Foundation Foods database."
+  },
+  {
+    "objectID": "index.html#quick-access",
+    "href": "index.html#quick-access",
+    "title": "Legume Nutrient Dashboard",
+    "section": "🔗 Quick Access",
+    "text": "🔗 Quick Access\n\n\n📚 Documentation\nComplete API reference and usage guide\n\n\n🚀 Get Started\nStep-by-step tutorial for beginners\n\n\n📋 Technical Report\nDetailed methodology and findings\n\n\n🌐 Live Demo\nInteractive Streamlit application"
+  },
+  {
+    "objectID": "index.html#key-features",
+    "href": "index.html#key-features",
+    "title": "Legume Nutrient Dashboard",
+    "section": "✨ Key Features",
+    "text": "✨ Key Features\n\nInteractive Data Visualization with radar charts and correlation analysis\nUSDA Data Integration for real-time nutritional information\nComprehensive Legume Database covering beans, lentils, peas, and more\nExport Capabilities for filtered datasets and analysis results"
+  },
+  {
+    "objectID": "index.html#technology-stack",
+    "href": "index.html#technology-stack",
+    "title": "Legume Nutrient Dashboard",
+    "section": "🛠️ Technology Stack",
+    "text": "🛠️ Technology Stack\nBuilt with modern data science tools: Python, Streamlit, Plotly, Pandas, and Quarto for documentation.\n\n\nDeveloped as part of STAT 386 coursework • Open source and available on PyPI"
   }
 ]

@@ -1,11 +1,63 @@
 ---
-title: "My Python Package!"
+title: "Legume Nutrient Dashboard"
+subtitle: "Interactive Analysis of USDA Food Data"
+description: "Explore nutritional profiles of legumes through interactive visualizations and data analysis"
+format:
+  html:
+    toc: false
 ---
 
-Here is a website all about my package for STAT 386!
+::: {.hero-section}
+# 🌱 Legume Nutrient Dashboard
 
-Documentation [here](Documentation.qmd).
+**An interactive web application for analyzing legume nutritional data from the USDA FoodData Central API**
 
-Get started [here](Tutorial.qmd).
+Built for STAT 386 • Data Science & Analysis
+:::
 
-Review the [technical report](TechnicalReport.qmd).
+## 📊 Project Overview
+
+This dashboard provides comprehensive analysis of legume nutritional profiles, featuring interactive visualizations and data insights from the USDA Foundation Foods database.
+
+## 🔗 Quick Access
+
+::: {.grid .gap-3}
+
+::: {.g-col-6 .g-col-md-3}
+### 📚 [Documentation](Documentation.qmd)
+Complete API reference and usage guide
+:::
+
+::: {.g-col-6 .g-col-md-3}
+### 🚀 [Get Started](Tutorial.qmd)
+Step-by-step tutorial for beginners
+:::
+
+::: {.g-col-6 .g-col-md-3}
+### 📋 [Technical Report](TechnicalReport.qmd)
+Detailed methodology and findings
+:::
+
+::: {.g-col-6 .g-col-md-3}
+### 🌐 [Live Demo](https://app-for-legume-data-x2cd4xov7tahgnjfshpg85.streamlit.app/)
+Interactive Streamlit application
+:::
+
+:::
+
+## ✨ Key Features
+
+- **Interactive Data Visualization** with radar charts and correlation analysis
+- **USDA Data Integration** for real-time nutritional information
+- **Comprehensive Legume Database** covering beans, lentils, peas, and more
+- **Export Capabilities** for filtered datasets and analysis results
+
+## 🛠️ Technology Stack
+
+Built with modern data science tools: Python, Streamlit, Plotly, Pandas, and Quarto for documentation.
+
+---
+
+::: {.text-center}
+*Developed as part of STAT 386 coursework • Open source and available on PyPI*
+:::
