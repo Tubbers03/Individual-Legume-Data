@@ -13,7 +13,7 @@ format:
 
 ## Introduction
 
-### How did I pick the data?
+### How did we pick the data?
 
 This project demonstrates our complete data science workflow including data acquisition through an API call, wrangling, analysis, and insights. We selected data from the USDA FoodData Central (FDC) API, focusing specifically on Foundation Foods in the Legumes and Legume Products category. Our goal was to build functions that automatically retrieve nutrient profiles, clean the resulting JSON structure, organize nutrient fields into a usable dataset, and generate exploratory analyses such as summary visualizations and correlation heatmaps. This report describes the pipeline and summarizes how another user could replicate the workflow.
 
@@ -152,4 +152,4 @@ The final package allows any user with a single API key to regenerate the full d
 - Expand to other food categories beyond legumes
 - Add statistical modeling capabilities
 
-This project successfully demonstrates the complete data science lifecycle while providing valuable insights into legume nutrition that could inform dietary recommendations and food science research.
+This project successfully demonstrates the complete data science process while providing valuable insights into legume nutrition that could inform dietary recommendations and food science research.
