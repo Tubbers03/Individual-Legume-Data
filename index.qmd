@@ -34,12 +34,12 @@ Step-by-step tutorial for beginners
 :::
 
 ::: {.g-col-6 .g-col-md-3}
-### 📋 [Technical Report](TechnicalReport.qmd)
+### 📋 [Final Report](TechnicalReport.qmd)
 Detailed methodology and findings
 :::
 
 ::: {.g-col-6 .g-col-md-3}
-### 🌐 [Live Demo](https://app-for-legume-data-x2cd4xov7tahgnjfshpg85.streamlit.app/)
+### 🌐 [Streamlit App](https://app-for-legume-data-x2cd4xov7tahgnjfshpg85.streamlit.app/)
 Interactive Streamlit application
 :::
 
